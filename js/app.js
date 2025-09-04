@@ -1,6 +1,6 @@
 
 async function loadConfig(){
-  const res = await fetch('./data/site.config.json');
+  const res = await fetch('../data/site.config.json');
   const cfg = await res.json();
   // Hero
   document.querySelector('#name').textContent = cfg.name;
@@ -46,4 +46,4 @@ async function loadConfig(){
   if (desc) desc.setAttribute('content', cfg.meta.description);
 }
 loadConfig();
-if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js')); }
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js')); }
