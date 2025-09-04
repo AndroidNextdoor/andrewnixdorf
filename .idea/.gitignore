@@ -4,6 +4,7 @@
 misc.xml
 modules.xml
 vcs.xml
+aws.xml
 *.iml
 # Editor-based HTTP Client requests
 /httpRequests/

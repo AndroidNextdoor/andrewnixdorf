@@ -4,16 +4,17 @@
   "summary": "Problem-solver and master test crafter. Lead SDET at Zywave; Katalon Creator. I build resilient CI/CD pipelines, AI-powered testing workflows, and high-signal QA strategies that scale.",
   "keywords": [
     "SDET",
-    "Katalon Studio",
+    "Selenium",
     "Playwright",
+    "Cypress",
     "AWS Bedrock",
     "Amazon Q",
     "RAG",
     "DevOps",
-    "/dev/reno organizer",
-    "Disciplinet founder",
+    "Organizer of /dev/reno",
     "Docker",
-    "Terraform"
+    "Terraform",
+    "Performance Testing"
   ],
   "links": {
     "resume": "/assets/resume.pdf",
