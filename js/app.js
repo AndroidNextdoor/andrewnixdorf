@@ -1,6 +1,6 @@
 
 async function loadConfig(){
-  const res = await fetch('./data/site.config.json');
+  const res = await fetch('./assets/data/site.config.json');
   const cfg = await res.json();
   // Hero
   document.querySelector('#name').textContent = cfg.name;
