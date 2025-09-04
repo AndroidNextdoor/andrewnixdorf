@@ -1,0 +1,6 @@
+
+max_redirects = 5
+accept = ["200..=299"]
+exclude_path = ["**/.github/**"]
+output = "out.md"
+format = "markdown"

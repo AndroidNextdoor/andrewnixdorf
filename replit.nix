@@ -1,0 +1,3 @@
+{
+  deps = [ pkgs.python3 ];
+}

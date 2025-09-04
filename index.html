@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Andrew Nixdorf — SDET, QA Automation, AI + AWS">
+  <meta property="og:title" content="Andrew Nixdorf — SDET • QA • AI">
+  <meta property="og:description" content="Lead SDET @ Zywave. QA automation, Katalon, AWS Bedrock, RAG, DevOps.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/logo.svg">
+  <link rel="icon" href="/assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Andrew Nixdorf — SDET • QA • AI</title>
+</head>
+<body>
+  <header class="container nav">
+    <div class="brand">
+      <img src="/assets/logo.svg" alt="logo">
+      <strong>Andrew Nixdorf</strong>
+    </div>
+    <nav>
+      <a href="#projects">Projects</a> &nbsp;·&nbsp;
+      <a href="#experience">Experience</a> &nbsp;·&nbsp;
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 id="name">Andrew (Drewski) Nixdorf</h1>
+      <p id="role" class="visually-hidden">Lead SDET • QA Automation • AI + AWS</p>
+      <p id="summary">Problem-solver and master test crafter.</p>
+      <div class="tags" id="tags" aria-hidden="true"></div>
+      <div class="resume" id="hero-links"></div>
+    </section>
+
+    <section class="section" id="projects-section">
+      <h2>Projects</h2>
+      <div id="projects" class="grid cards"></div>
+    </section>
+
+    <section class="section" id="experience-section">
+      <h2>Experience</h2>
+      <div id="experience" class="grid cards"></div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p id="contact-links"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Andrew Nixdorf. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

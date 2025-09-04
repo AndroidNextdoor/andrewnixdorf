@@ -1,0 +1,22 @@
+
+:root{--bg:#0b1220;--card:#0f172a;--ink:#e5e7eb;--muted:#9ca3af;--brand:#60a5fa;--accent:#22d3ee}
+*{box-sizing:border-box}html,body{margin:0;padding:0;height:100%}
+body{background:radial-gradient(1200px 800px at 80% -20%, rgba(34,211,238,.15), transparent 60%),
+             radial-gradient(900px 700px at -10% 10%, rgba(96,165,250,.15), transparent 50%),var(--bg);
+     color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:8px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:36px;height:36px}.brand strong{font-weight:700;font-size:18px}
+.btn{display:inline-block;padding:10px 16px;border-radius:12px;background:var(--brand);color:#0b1220;font-weight:700;border:1px solid rgba(255,255,255,.08)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(255,255,255,.16)}
+.grid{display:grid;gap:16px}.hero{padding:56px 0 12px}
+.hero h1{font-size:44px;line-height:1.1;margin:0 0 12px}.hero p{color:var(--muted);max-width:60ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}.tag{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--accent);font-weight:600;font-size:13px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:8px}.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+.card h3{margin:0 0 6px;font-size:18px}.card p{color:var(--muted);margin:0 0 10px}
+.footer{opacity:.7;padding:40px 0;text-align:center;color:var(--muted)}
+.section{margin:40px 0 0}.section h2{margin:0 0 8px;font-size:22px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:12px;color:var(--ink);font-weight:600}
+.resume{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.visually-hidden{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+@media (max-width:720px){.hero h1{font-size:34px}}

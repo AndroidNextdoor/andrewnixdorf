@@ -1,0 +1,17 @@
+
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "chromeLaunchConfig": { "flags": ["--no-sandbox"] }
+  },
+  "urls": [
+    "http://localhost:8080/",
+    "http://localhost:8080/#projects",
+    "http://localhost:8080/#experience",
+    "http://localhost:8080/#contact"
+  ],
+  "json": true,
+  "reporter": "json",
+  "log": { "level": "error" }
+}
