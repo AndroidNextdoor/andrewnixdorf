@@ -1,20 +1,18 @@
 {
-  "name": "Andrew Nixdorf",
+  "name": "Andrew (Drewski) Nixdorf",
   "role": "Lead SDET \u2022 QA Automation \u2022 AI + AWS",
   "summary": "Problem-solver and master test crafter. Lead SDET at Zywave; Katalon Creator. I build resilient CI/CD pipelines, AI-powered testing workflows, and high-signal QA strategies that scale.",
   "keywords": [
     "SDET",
-    "Selenium",
+    "Katalon Studio",
     "Playwright",
-    "Cypress",
     "AWS Bedrock",
-    "Amazon Q",
     "RAG",
     "DevOps",
-    "Organizer of /dev/reno",
+    "/dev/reno organizer",
+    "Disciplinet founder",
     "Docker",
-    "Terraform",
-    "Performance Testing"
+    "Terraform"
   ],
   "links": {
     "resume": "./assets/resume.pdf",
@@ -78,6 +76,12 @@
       "title": "Organizer",
       "period": "2023 \u2014 Present",
       "highlights": "Monthly community talks; led hackathon & sponsorship outreach."
+    },
+    {
+      "company": "Disciplinet",
+      "title": "Founder",
+      "period": "2024 \u2014 Present",
+      "highlights": "AI habit-building app; created agents like SmartSage for personalization and model insights."
     }
   ],
   "meta": {

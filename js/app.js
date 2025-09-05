@@ -47,3 +47,48 @@ async function loadConfig(){
 }
 loadConfig();
 if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js')); }
+
+// Easter Eggs
+let clickCount = 0;
+let konamiSequence = [];
+const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
+
+// Logo Click Counter
+document.querySelector('.brand img').addEventListener('click', () => {
+  clickCount++;
+  if (clickCount >= 10) {
+    showEasterEgg('click-egg');
+    clickCount = 0;
+  }
+});
+
+// Konami Code Detection
+document.addEventListener('keydown', (e) => {
+  konamiSequence.push(e.code);
+  if (konamiSequence.length > konamiCode.length) konamiSequence.shift();
+  if (JSON.stringify(konamiSequence) === JSON.stringify(konamiCode)) {
+    showEasterEgg('konami-egg');
+    konamiSequence = [];
+  }
+});
+
+// Typing Easter Eggs
+let typedSequence = '';
+document.addEventListener('keydown', (e) => {
+  if (e.key.length === 1) {
+    typedSequence += e.key.toLowerCase();
+    if (typedSequence.includes('debug') || typedSequence.includes('selenium') || 
+        typedSequence.includes('cypress') || typedSequence.includes('playwright')) {
+      showEasterEgg('secret-commands');
+      typedSequence = '';
+    }
+    if (typedSequence.length > 20) typedSequence = typedSequence.slice(-10);
+  }
+});
+
+function showEasterEgg(id) {
+  const egg = document.getElementById(id);
+  egg.classList.remove('hidden');
+  setTimeout(() => egg.classList.add('hidden'), 4000);
+  console.log(`🥚 Easter egg activated: ${id}`);
+}

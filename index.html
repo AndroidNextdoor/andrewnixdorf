@@ -54,8 +54,34 @@
     </section>
   </main>
 
+  <!-- Hidden Easter Eggs -->
+  <div id="konami-egg" class="easter-egg hidden">
+    <div class="test-banner">
+      🧪 TEST MODE ACTIVATED 🧪<br>
+      <small>All bugs are features until proven otherwise!</small>
+    </div>
+  </div>
+  
+  <div id="click-egg" class="easter-egg hidden">
+    <div class="achievement-popup">
+      🏆 Achievement Unlocked: "Persistent Tester"<br>
+      <small>You clicked the logo 10 times. That's some serious QA dedication!</small>
+    </div>
+  </div>
+
+  <div id="secret-commands" class="easter-egg hidden">
+    <div class="console-output">
+      > test --help<br>
+      Available commands: debug, selenium, cypress, playwright<br>
+      Type a command to learn more! 🤖
+    </div>
+  </div>
+
   <footer class="footer">
     <p>© <span id="year"></span> Andrew Nixdorf. All rights reserved.</p>
+    <p class="hint" style="opacity: 0.3; font-size: 11px; margin-top: 8px;">
+      🕵️ Tip: Try the Konami code or clicking around...
+    </p>
   </footer>
 
   <script src="./js/app.js"></script>

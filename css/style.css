@@ -19,4 +19,12 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
 .section{margin:40px 0 0}.section h2{margin:0 0 8px;font-size:22px}
 .badges{display:flex;gap:8px;flex-wrap:wrap}.badge{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:12px;color:var(--ink);font-weight:600}
 .resume{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.visually-hidden{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+/* Easter Egg Styles */
+.easter-egg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000;pointer-events:none}
+.easter-egg.hidden{display:none}
+.test-banner{background:linear-gradient(45deg,#ff6b6b,#4ecdc4);color:#fff;padding:20px 30px;border-radius:12px;text-align:center;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,0.3);animation:bounce 0.5s ease-out}
+.achievement-popup{background:var(--card);border:2px solid var(--accent);padding:16px 20px;border-radius:12px;text-align:center;color:var(--ink);box-shadow:0 8px 25px rgba(34,211,238,0.3);animation:slideUp 0.6s ease-out}
+.console-output{background:#1a1a1a;color:#00ff00;padding:12px 16px;border-radius:8px;font-family:monospace;font-size:14px;border:1px solid #333;box-shadow:0 4px 15px rgba(0,0,0,0.5)}
+@keyframes bounce{0%{transform:translate(-50%,-50%) scale(0.8)}50%{transform:translate(-50%,-50%) scale(1.1)}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes slideUp{0%{transform:translate(-50%,20px);opacity:0}100%{transform:translate(-50%,-50%);opacity:1}}
 @media (max-width:720px){.hero h1{font-size:34px}}
