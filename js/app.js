@@ -54,11 +54,17 @@ let konamiSequence = [];
 const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
 
 // Logo Click Counter
-document.querySelector('.brand img').addEventListener('click', () => {
-  clickCount++;
-  if (clickCount >= 10) {
-    showEasterEgg('click-egg');
-    clickCount = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('.brand img');
+  if (logo) {
+    logo.addEventListener('click', () => {
+      clickCount++;
+      console.log(`Logo clicks: ${clickCount}`);
+      if (clickCount >= 10) {
+        showEasterEgg('click-egg');
+        clickCount = 0;
+      }
+    });
   }
 });
 
