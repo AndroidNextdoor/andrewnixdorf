@@ -264,7 +264,7 @@ def run_lighthouse_tests(port=8001):
                 )
     
     # Write temporary config
-    temp_config = "test/lighthouserc_temp.json"
+    temp_config = "test/lighthouserc.json"
     with open(temp_config, 'w') as f:
         json.dump(config, f, indent=2)
     

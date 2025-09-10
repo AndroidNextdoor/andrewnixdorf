@@ -14,3 +14,4 @@ aws.xml
 /dataSources/
 /dataSources.local.xml
 .lighthouseci
+.lycheeci

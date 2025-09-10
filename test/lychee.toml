@@ -21,16 +21,14 @@ exclude = [
     # Skip private networks
     "http://192.168.*",
     "http://10.*", 
-    "http://172.16.*",
-    # Skip file links
-    "file://*"
+    "http://172.16.*"
 ]
 
 # Exclude paths
-exclude_path = ["**/.github/**", "**/_scripts/**"]
+exclude_path = [".github", "_scripts"]
 
 # Output configuration
-output = "lychee-report.md"
+output = ".lycheeci/lychee-report.md"
 format = "markdown"
 
 # User agent string

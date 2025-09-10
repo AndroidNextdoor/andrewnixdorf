@@ -10,10 +10,38 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/images/stoked-logo.png">
   <link rel="icon" href="./assets/images/stoked-logo.png">
+  
+  <!-- Performance optimizations -->
+  <link rel="preload" href="./assets/images/ProfilePic.jpeg" as="image" fetchpriority="high">
+  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="preload" href="./js/app.js" as="script">
+  <link rel="preload" href="./assets/data/site.config.json" as="fetch" crossorigin>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  
+  <!-- Critical CSS inlined for faster rendering -->
+  <style>
+    :root{--bg:#e8d4ab;--card:#0f172a;--ink:#454850;--muted:#0f1115;--brand:#e97101;--accent:#4f5656}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%}
+    body{background:radial-gradient(1200px 800px at 80% -20%,rgba(237,143,58,.12),transparent 60%),radial-gradient(900px 700px at -10% 10%,rgba(210,180,140,.08),transparent 50%),linear-gradient(135deg,var(--bg) 0%,100%);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hero-layout{display:flex;gap:40px;align-items:flex-start;padding:16px 0 20px}
+    .hero-content{flex:2;padding-right:20px}
+    .hero-content h1{font-size:44px;line-height:1.1;margin:0 0 12px}
+    .hero-image{flex:1;display:flex;justify-content:center;align-items:flex-start;position:sticky;top:100px}
+    .profile-pic{width:240px;height:240px;border-radius:50%;object-fit:cover;border:4px solid rgba(237,143,58,.3);box-shadow:0 8px 24px rgba(0,0,0,.2);transition:transform 0.3s ease,box-shadow 0.3s ease}
+    .visually-hidden{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+  </style>
+  
+  <!-- Load full CSS asynchronously -->
+  <link rel="preload" href="./css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./css/style.css"></noscript>
+  
+  <!-- Load fonts asynchronously -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <title>Andrew Nixdorf</title>
 </head>
 <body>
@@ -40,7 +68,7 @@
         <div class="resume" id="hero-links"></div>
       </section>
       <aside class="hero-image">
-        <img src="./assets/images/ProfilePic.jpeg" alt="Andrew Nixdorf Profile" class="profile-pic">
+        <img src="./assets/images/ProfilePic.jpeg" alt="Andrew Nixdorf Profile" class="profile-pic" loading="eager" fetchpriority="high">
       </aside>
     </div>
 
@@ -115,5 +143,15 @@
 
   <script src="./js/app.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  
+  <!-- Load easter eggs asynchronously after main content -->
+  <script>
+    window.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.src = './js/ee.js';
+      script.async = true;
+      document.head.appendChild(script);
+    });
+  </script>
 </body>
 </html>

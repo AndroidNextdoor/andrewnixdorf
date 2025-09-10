@@ -16,10 +16,7 @@
     ]
   },
   "urls": [
-    "http://localhost:8000/",
-    "http://localhost:8000/#projects",
-    "http://localhost:8000/#experience", 
-    "http://localhost:8000/#contact"
+    "http://localhost:8000/"
   ],
   "json": true,
   "reporter": "json",
