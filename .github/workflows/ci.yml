@@ -46,8 +46,18 @@ jobs:
         # Start virtual display for headless browser testing
         sudo apt-get install -y xvfb
         Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+        # Ensure artifact directories exist
+        mkdir -p .lighthouseci .lycheeci .pa11yci
         python3 _scripts/run_tests.py
         echo "✅ Quality gate testing completed"
+        
+    - name: Debug artifact directories
+      if: always()
+      run: |
+        echo "Checking artifact directories..."
+        ls -la .lighthouseci/ || echo "No .lighthouseci directory"
+        ls -la .lycheeci/ || echo "No .lycheeci directory"  
+        ls -la .pa11yci/ || echo "No .pa11yci directory"
 
     - name: Upload test reports
       uses: actions/upload-artifact@v4
@@ -58,4 +68,5 @@ jobs:
           .lighthouseci/
           .lycheeci/
           .pa11yci/
+        if-no-files-found: warn
         retention-days: 7
