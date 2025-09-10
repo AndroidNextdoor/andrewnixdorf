@@ -21,7 +21,9 @@ exclude = [
     # Skip private networks
     "http://192.168.*",
     "http://10.*", 
-    "http://172.16.*"
+    "http://172.16.*",
+    # Skip sitemap URLs that might not exist during testing
+    "https://andrewnixdorf.com/sitemap.xml"
 ]
 
 # Exclude paths

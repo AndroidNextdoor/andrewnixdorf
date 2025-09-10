@@ -1,0 +1,50 @@
+# Andrew Nixdorf Portfolio - Robots.txt
+# Optimized for recruiter and technical hiring manager visibility
+
+User-agent: *
+Allow: /
+
+# Encourage indexing of key pages for recruitment visibility
+Allow: /index.html
+Allow: /assets/andrew-nixdorf-resume.pdf
+Allow: /assets/andrew-nixdorf-resume.docx
+
+# Block non-essential directories to focus crawler attention
+Disallow: /_scripts/
+Disallow: /test/
+Disallow: /.idea/
+Disallow: /.lycheeci/
+Disallow: /.lighthouseci/
+Disallow: /js/ee.js
+
+# Sitemap location for better SEO discovery
+Sitemap: https://andrewnixdorf.com/sitemap.xml
+# Local development sitemap (for testing)
+# Sitemap: http://localhost:8000/sitemap.xml
+
+# Special instructions for recruitment-focused crawlers
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Allow Google and other major search engines full access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Welcome recruiters and hiring managers!
+# This portfolio showcases:
+# - Professional SDET expertise
+# - QA Automation & Testing
+# - AWS & Cloud Technologies  
+# - AI/ML Integration (Bedrock, RAG)
+# - DevSecOps & Infrastructure
+# - Katalon Studio, Playwright, Cypress
+# - Terraform & Infrastructure as Code

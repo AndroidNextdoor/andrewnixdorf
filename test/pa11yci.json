@@ -9,7 +9,18 @@
     "includeNotices": false,
     "includeWarnings": false,
     "chromeLaunchConfig": { 
-      "flags": ["--no-sandbox", "--disable-dev-shm-usage"] 
+      "flags": [
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--disable-background-timer-throttling",
+        "--disable-backgrounding-occluded-windows",
+        "--disable-renderer-backgrounding",
+        "--disable-features=TranslateUI",
+        "--disable-software-rasterizer",
+        "--no-first-run",
+        "--single-process"
+      ]
     },
     "ignore": [
       "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.EmptyNoId"

@@ -17,5 +17,40 @@
         "LINKEDIN_COOKIE": "${LINKEDIN_COOKIE}"
       }
     }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(./_scripts/set_linkedin_cookie.sh:*)",
+      "Bash(env)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(python3:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(dd *)",
+      "Bash(mkfs.*)",
+      "Bash(fdisk *)",
+      "Bash(format *)",
+      "Bash(del /s *)",
+      "Bash(rmdir /s *)",
+      "Bash(*.sh > /dev/null 2>&1 &)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | sh)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)",
+      "Bash(eval *)",
+      "Bash(echo * > ~/.ssh/*)",
+      "Bash(cat * > ~/.ssh/*)",
+      "Bash(cp * ~/.ssh/)",
+      "Bash(mv * ~/.ssh/)",
+      "Bash(git clone * ~/.ssh/)",
+      "WebFetch(domain:*.onion)",
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:127.0.0.1)",
+      "WebFetch(domain:0.0.0.0)"
+    ],
+    "ask": []
   }
 }
