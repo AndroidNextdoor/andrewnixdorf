@@ -23,6 +23,8 @@
       "Bash(./_scripts/set_linkedin_cookie.sh:*)",
       "Bash(env)",
       "WebFetch(domain:www.linkedin.com)",
+      "Bash(lychee:*)",
+      "Bash(pa11y:*)",
       "Bash(python3:*)"
     ],
     "deny": [

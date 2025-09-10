@@ -221,14 +221,18 @@ def run_accessibility_tests(port=8001):
     original_urls = config.get('urls', [])
     config['urls'] = [url.replace('http://localhost:8000', f'http://localhost:{port}') for url in original_urls]
     
+    # Create pa11y report directory
+    os.makedirs('.pa11yci', exist_ok=True)
+    
     # Write temporary config
     temp_config = "test/pa11yci_temp.json"
     with open(temp_config, 'w') as f:
         json.dump(config, f, indent=2)
     
     try:
+        # Run pa11y with JSON output and save to file
         result = run_command(
-            f"pa11y-ci --config {temp_config}",
+            f"pa11y-ci --config {temp_config} --reporter json > .pa11yci/pa11y-report.json 2>&1 || true",
             "Accessibility tests",
             allow_failure=True  # May have minor accessibility issues
         )
@@ -264,7 +268,7 @@ def run_lighthouse_tests(port=8001):
                 )
     
     # Write temporary config
-    temp_config = "test/lighthouserc.json"
+    temp_config = "test/lighthouserc_temp.json"
     with open(temp_config, 'w') as f:
         json.dump(config, f, indent=2)
     

@@ -40,8 +40,5 @@
   "urls": [
     "http://localhost:8000/"
   ],
-  "json": true,
-  "reporter": "json",
-  "outputDir": ".pa11yci",
   "log": { "level": "error" }
 }
