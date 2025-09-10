@@ -6,8 +6,13 @@ import zipfile
 import os
 
 def create_word_document():
+    # Get the script directory and project root
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    
     # Read the site configuration
-    with open('/Users/andrew.nixdorf/Projects/andrewnixdorf/assets/data/site.config.json', 'r') as f:
+    config_path = os.path.join(project_root, 'assets', 'data', 'site.config.json')
+    with open(config_path, 'r') as f:
         data = json.load(f)
     
     # Create the main document XML structure
@@ -186,15 +191,41 @@ def create_styles():
     </w:style>
 </w:styles>'''
 
-def create_pdf_resume():
+def create_pdf_resume(project_root):
     import subprocess
-    html_path = '/Users/andrew.nixdorf/Projects/andrewnixdorf/resume.html'
-    pdf_path = '/Users/andrew.nixdorf/Projects/andrewnixdorf/assets/resume.pdf'
+    html_path = os.path.join(project_root, 'resume.html')
+    pdf_path = os.path.join(project_root, 'assets', 'resume.pdf')
+    
+    # Ensure assets directory exists
+    os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
+    
+    # Try different Chrome/Chromium paths for different environments
+    chrome_paths = [
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',  # macOS
+        '/usr/bin/google-chrome',  # Linux
+        '/usr/bin/chromium-browser',  # Linux alternative
+        'google-chrome',  # PATH
+        'chromium'  # PATH alternative
+    ]
+    
+    chrome_cmd = None
+    for path in chrome_paths:
+        try:
+            if os.path.exists(path) or subprocess.run(['which', path.split('/')[-1]], 
+                                                    capture_output=True, check=True):
+                chrome_cmd = path
+                break
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            continue
+    
+    if not chrome_cmd:
+        print("⚠️  Chrome/Chromium not found. Skipping PDF generation.")
+        return False
     
     # Use Chrome to convert HTML to PDF
     cmd = [
-        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-        '--headless', '--disable-gpu',
+        chrome_cmd,
+        '--headless', '--disable-gpu', '--no-sandbox',
         f'--print-to-pdf={pdf_path}',
         '--print-to-pdf-no-header', '--no-margins',
         f'file://{html_path}'
@@ -209,7 +240,15 @@ def create_pdf_resume():
         return False
 
 def main():
-    docx_path = '/Users/andrew.nixdorf/Projects/andrewnixdorf/assets/resume.docx'
+    # Get the script directory and project root
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    
+    # Ensure assets directory exists
+    assets_dir = os.path.join(project_root, 'assets')
+    os.makedirs(assets_dir, exist_ok=True)
+    
+    docx_path = os.path.join(assets_dir, 'resume.docx')
     
     # Create the DOCX file
     with zipfile.ZipFile(docx_path, 'w', zipfile.ZIP_DEFLATED) as docx:
@@ -228,7 +267,7 @@ def main():
     print(f"DOCX resume created successfully at: {docx_path}")
     
     # Also create PDF version
-    create_pdf_resume()
+    create_pdf_resume(project_root)
 
 if __name__ == "__main__":
     main()

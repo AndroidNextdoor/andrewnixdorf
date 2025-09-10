@@ -16,21 +16,21 @@ async function loadConfig(){
   let resumeLink = '';
   if (typeof cfg.links.resume === 'object' && cfg.links.resume.pdf && cfg.links.resume.docx) {
     resumeLink = `<div class="resume-dropdown">
-      <button class="btn ghost resume-btn" onclick="toggleResumeDropdown()">View Resume ▼</button>
+      <button class="btn ghost resume-btn" onclick="toggleResumeDropdown()">Resume</button>
       <div class="resume-dropdown-content" id="resume-dropdown">
         <a href="${cfg.links.resume.pdf}" target="_blank" rel="noopener">PDF</a>
         <a href="${cfg.links.resume.docx}" target="_blank" rel="noopener">DOCX</a>
       </div>
     </div>`;
   } else {
-    resumeLink = `<a class="btn ghost" href="${cfg.links.resume.pdf || cfg.links.resume}" target="_blank" rel="noopener">View Resume</a>`;
+    resumeLink = `<a class="btn ghost" href="${cfg.links.resume.pdf || cfg.links.resume}" target="_blank" rel="noopener">Resume</a>`;
   }
   
   document.querySelector('#hero-links').innerHTML = `
     <a class="btn ghost" href="#" onclick="openImageSlider(); return false;">Images</a>
-    ${resumeLink}
     <a class="btn ghost" href="${cfg.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn ghost" href="${cfg.links.github}" target="_blank" rel="noopener">GitHub</a>
+    ${resumeLink}
   `;
   const tags = document.querySelector('#tags'); tags.innerHTML = '';
   cfg.keywords.forEach(k => { 

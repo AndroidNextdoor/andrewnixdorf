@@ -46,6 +46,15 @@ a:hover{text-decoration:underline}
 
 /* Resume Dropdown Styles */
 .resume-dropdown{position:relative;display:inline-block}
+.resume-btn{
+    font-weight:700 !important;
+    font-family:inherit !important;
+    font-size:inherit !important;
+    padding:10px 16px !important;
+    display:inline-block !important;
+    text-align:center !important;
+    vertical-align:middle !important;
+}
 .resume-dropdown-content{
     display:none;position:absolute;top:100%;left:0;
     background:var(--card);border-radius:8px;
