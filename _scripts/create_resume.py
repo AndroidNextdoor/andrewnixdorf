@@ -73,6 +73,14 @@ def create_word_document():
         add_paragraph(body, f"Technologies: {', '.join(project['stack'])}")
         add_paragraph(body, '')
     
+    # Add certifications if they exist
+    if 'certifications' in data and data['certifications']:
+        add_heading(body, 'CERTIFICATIONS', 2)
+        for cert in data['certifications']:
+            add_paragraph(body, cert['name'], 'Strong')
+            add_paragraph(body, f"{cert['issuer']} - {cert['date']}")
+            add_paragraph(body, '')
+    
     # Add skills
     add_heading(body, 'CORE TECHNOLOGIES & SKILLS', 2)
     add_paragraph(body, ', '.join(data['keywords']))
@@ -194,7 +202,7 @@ def create_styles():
 def create_pdf_resume(project_root):
     import subprocess
     html_path = os.path.join(project_root, 'resume.html')
-    pdf_path = os.path.join(project_root, 'assets', 'resume.pdf')
+    pdf_path = os.path.join(project_root, 'assets', 'andrew-nixdorf-resume.pdf')
     
     # Ensure assets directory exists
     os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
@@ -248,7 +256,7 @@ def main():
     assets_dir = os.path.join(project_root, 'assets')
     os.makedirs(assets_dir, exist_ok=True)
     
-    docx_path = os.path.join(assets_dir, 'resume.docx')
+    docx_path = os.path.join(assets_dir, 'andrew-nixdorf-resume.docx')
     
     # Create the DOCX file
     with zipfile.ZipFile(docx_path, 'w', zipfile.ZIP_DEFLATED) as docx:

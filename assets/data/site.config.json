@@ -28,8 +28,8 @@
   },
   "links": {
     "resume": {
-      "pdf": "./assets/resume.pdf",
-      "docx": "./assets/resume.docx"
+      "pdf": "./assets/andrew-nixdorf-resume.pdf",
+      "docx": "./assets/andrew-nixdorf-resume.docx"
     },
     "linkedin": "https://www.linkedin.com/in/andrewnixdorf/",
     "github": "https://github.com/AndroidNextdoor"
@@ -91,7 +91,8 @@
         "Built test automation solutions using Java, JavaScript, Selenium, Katalon Studio and AWS",
         "Designed load testing strategies for high-traffic insurance platforms",
         "Implemented AI-driven defect discovery across multiple products",
-        "Leading QA transformation initiatives and mentored junior SDETs"
+        "Leading QA transformation initiatives and mentored junior SDETs",
+        "Architected Selenium Grid testing environments on AWS infrastructure"
       ]
     },
     {
@@ -104,6 +105,29 @@
         "Manage speaker outreach and build relationships",
         "Hosted workshops and shared key skills about software engineering and testing"
       ]
+    },
+    {
+      "company": "Previous Technology Roles",
+      "title": "Senior Software Testing Engineer",
+      "period": "2019 — 2023",
+      "highlights": [
+        "Specialized in automation and performance testing frameworks",
+        "Developed testing infrastructure and CI/CD pipeline integrations",
+        "Built comprehensive QA automation frameworks across multiple platforms",
+        "Led testing initiatives for various technical products and services"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "April 2018"
+    },
+    {
+      "name": "CompTIA A+",
+      "issuer": "CompTIA",
+      "date": "May 2008 — May 2011"
     }
   ],
   "meta": {

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build and Test" type="CompoundRunConfigurationType">
+    <toRun name="Generate Resume Files" type="PythonConfigurationType" />
+    <toRun name="Run Tests (Skip Dependencies)" type="PythonConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

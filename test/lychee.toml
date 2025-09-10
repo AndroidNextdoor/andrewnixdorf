@@ -41,6 +41,3 @@ timeout = 20
 
 # Number of retries
 max_retries = 2
-
-# Verbose output
-verbose = true

@@ -26,17 +26,21 @@ python3 _scripts/create_resume.py
 
 ### Quality Assurance
 ```bash
+# Run all quality gates locally (recommended - mirrors CI/CD pipeline)
+python3 _scripts/run_tests.py
+
+# Individual test commands:
 # Validate JSON configuration
 jq . assets/data/site.config.json
 
 # Check for broken links (requires lychee)
-lychee --config lychee.toml .
+lychee --config test/lychee.toml .
 
-# Run accessibility tests (requires pa11y-ci)
-pa11y-ci
+# Run accessibility tests (requires pa11y-ci)  
+pa11y-ci --config test/pa11yci.json
 
 # Run Lighthouse CI tests (requires @lhci/cli)
-lhci autorun
+lhci autorun --config test/lighthouserc.json
 ```
 
 ## Architecture & Structure

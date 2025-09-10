@@ -15,7 +15,7 @@ def main():
     project_root = os.path.dirname(script_dir)
     os.chdir(project_root)
     
-    PORT = 8000
+    PORT = int(os.environ.get('PORT', 8000))
     
     class Handler(http.server.SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):

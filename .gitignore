@@ -1,6 +1,6 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 misc.xml
 modules.xml
 vcs.xml
@@ -13,3 +13,4 @@ aws.xml
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+.lighthouseci

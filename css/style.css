@@ -50,7 +50,7 @@ a:hover{text-decoration:underline}
     font-weight:700 !important;
     font-family:inherit !important;
     font-size:inherit !important;
-    padding:10px 16px !important;
+    padding:13px 16px !important;
     display:inline-block !important;
     text-align:center !important;
     vertical-align:middle !important;
@@ -116,8 +116,8 @@ a:hover{text-decoration:underline}
     padding: 16px;
 }
 .card h3{margin:0 0 6px;font-size:18px;color:var(--bg)}
-.card p{color:var(--brand);margin:0 0 10px}
-.card .period{color:var(--brand);font-weight:600;margin:0 0 12px}
+.card p{color:#ffffff;margin:0 0 10px}
+.card .period{color:#ffffff;font-weight:600;margin:0 0 12px}
 .card ul{margin:0 0 10px;padding-left:20px;color:var(--bg)}
 .card li{margin:0 0 8px;line-height:1.4}
 .card li:last-child{margin-bottom:0}
@@ -150,6 +150,16 @@ a:hover{text-decoration:underline}
     border:1px solid rgba(255,255,255,.12);
     padding:6px 10px;border-radius:12px;color:var(--bg);
     background:rgba(210,180,140,.10);font-weight:600
+}
+.badge.active{
+    background:rgba(34,197,94,.15);
+    border-color:rgba(34,197,94,.3);
+    color:#16a34a
+}
+.badge.expired{
+    background:rgba(239,68,68,.15);
+    border-color:rgba(239,68,68,.3);
+    color:#dc2626
 }
 
 .resume{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}

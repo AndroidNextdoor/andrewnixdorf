@@ -37,61 +37,11 @@ jobs:
         sudo mv lychee /usr/local/bin/
         lychee --version
 
-    - name: Validate JSON Configuration
+    - name: Run Quality Assurance Tests
       run: |
-        echo "🔍 Validating JSON configuration..."
-        jq empty assets/data/site.config.json
-        echo "✅ JSON configuration is valid"
-
-    - name: Generate Resume Files
-      run: |
-        echo "📄 Generating resume files..."
-        python3 _scripts/create_resume.py
-        echo "✅ Resume files generated successfully"
-
-    - name: Start local server for testing
-      run: |
-        echo "🚀 Starting local server..."
-        python3 _scripts/serve.py &
-        SERVER_PID=$!
-        echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
-        
-        # Wait for server to be ready
-        echo "⏳ Waiting for server to start..."
-        for i in {1..30}; do
-          if curl -s http://localhost:8000 >/dev/null; then
-            echo "✅ Server is ready"
-            break
-          fi
-          sleep 1
-        done
-
-    - name: Check for broken links
-      run: |
-        echo "🔗 Checking for broken links..."
-        # Check both local files and external links
-        lychee --config lychee.toml . || echo "⚠️ Some links may be unreachable"
-        echo "✅ Link check completed"
-
-    - name: Run accessibility tests
-      run: |
-        echo "♿ Running accessibility tests..."
-        pa11y-ci --sitemap http://localhost:8000 --threshold 5 || echo "⚠️ Accessibility issues found"
-        echo "✅ Accessibility tests completed"
-
-    - name: Run Lighthouse CI
-      run: |
-        echo "🔍 Running Lighthouse performance tests..."
-        lhci autorun --config lighthouserc.json || echo "⚠️ Performance issues detected"
-        echo "✅ Lighthouse tests completed"
-      env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Stop local server
-      run: |
-        if [ ! -z "$SERVER_PID" ]; then
-          kill $SERVER_PID || true
-        fi
+        echo "🧪 Running comprehensive quality assurance tests..."
+        python3 _scripts/run_tests.py
+        echo "✅ All quality gates completed"
 
     - name: Upload test reports
       uses: actions/upload-artifact@v4
@@ -102,14 +52,3 @@ jobs:
           .lighthouseci/
           pa11y-ci-results.json
         retention-days: 7
-
-    - name: Quality Gate Summary
-      run: |
-        echo "📊 Quality Gate Results:"
-        echo "✅ JSON Configuration: Valid"
-        echo "✅ Resume Generation: Success"
-        echo "✅ Link Validation: Completed"
-        echo "✅ Accessibility Tests: Completed" 
-        echo "✅ Performance Tests: Completed"
-        echo ""
-        echo "🎉 All quality gates passed! Ready for deployment."
