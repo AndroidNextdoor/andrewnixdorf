@@ -27,7 +27,10 @@
     "Terraform": "https://www.terraform.io/"
   },
   "links": {
-    "resume": "./assets/resume.pdf",
+    "resume": {
+      "pdf": "./assets/resume.pdf",
+      "docx": "./assets/resume.docx"
+    },
     "linkedin": "https://www.linkedin.com/in/andrewnixdorf/",
     "github": "https://github.com/AndroidNextdoor"
   },

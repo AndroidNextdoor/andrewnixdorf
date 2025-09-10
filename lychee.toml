@@ -1,6 +1,46 @@
 
+# Lychee link checker configuration
+# https://lychee.cli.rs/
+
+# Maximum number of concurrent network requests
+max_concurrency = 8
+
+# Accept status codes
+accept = ["200..=299", "300..=308"]
+
+# Maximum redirects
 max_redirects = 5
-accept = ["200..=299"]
-exclude_path = ["**/.github/**"]
-output = "out.md"
+
+# Exclude patterns (glob syntax)
+exclude = [
+    # Skip mailto links
+    "mailto:*",
+    # Skip local development links  
+    "http://localhost:*",
+    "http://127.0.0.1:*",
+    # Skip private networks
+    "http://192.168.*",
+    "http://10.*", 
+    "http://172.16.*",
+    # Skip file links
+    "file://*"
+]
+
+# Exclude paths
+exclude_path = ["**/.github/**", "**/_scripts/**"]
+
+# Output configuration
+output = "lychee-report.md"
 format = "markdown"
+
+# User agent string
+user_agent = "lychee/andrewnixdorf-portfolio"
+
+# Timeout for requests (in seconds)
+timeout = 20
+
+# Number of retries
+max_retries = 2
+
+# Verbose output
+verbose = true

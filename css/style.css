@@ -44,6 +44,24 @@ a:hover{text-decoration:underline}
     border-color:rgba(255,255,255,.12);box-shadow:none
 }
 
+/* Resume Dropdown Styles */
+.resume-dropdown{position:relative;display:inline-block}
+.resume-dropdown-content{
+    display:none;position:absolute;top:100%;left:0;
+    background:var(--card);border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.08);
+    min-width:120px;z-index:1000;margin-top:4px
+}
+.resume-dropdown-content a{
+    display:block;padding:10px 16px;color:var(--bg);
+    text-decoration:none;border-radius:6px;margin:4px;
+    transition:background 0.2s ease
+}
+.resume-dropdown-content a:hover{
+    background:rgba(237,143,58,.15);text-decoration:none
+}
+
 .grid{display:grid;gap:16px}
 .hero-layout{
     display:flex;

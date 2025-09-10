@@ -12,9 +12,23 @@ async function loadConfig(){
   } else {
     summaryEl.textContent = cfg.summary;
   }
+  // Handle resume links - create dropdown if multiple formats available
+  let resumeLink = '';
+  if (typeof cfg.links.resume === 'object' && cfg.links.resume.pdf && cfg.links.resume.docx) {
+    resumeLink = `<div class="resume-dropdown">
+      <button class="btn ghost resume-btn" onclick="toggleResumeDropdown()">View Resume ▼</button>
+      <div class="resume-dropdown-content" id="resume-dropdown">
+        <a href="${cfg.links.resume.pdf}" target="_blank" rel="noopener">PDF</a>
+        <a href="${cfg.links.resume.docx}" target="_blank" rel="noopener">DOCX</a>
+      </div>
+    </div>`;
+  } else {
+    resumeLink = `<a class="btn ghost" href="${cfg.links.resume.pdf || cfg.links.resume}" target="_blank" rel="noopener">View Resume</a>`;
+  }
+  
   document.querySelector('#hero-links').innerHTML = `
     <a class="btn ghost" href="#" onclick="openImageSlider(); return false;">Images</a>
-    <a class="btn ghost" href="${cfg.links.resume}" target="_blank" rel="noopener">View Resume</a>
+    ${resumeLink}
     <a class="btn ghost" href="${cfg.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn ghost" href="${cfg.links.github}" target="_blank" rel="noopener">GitHub</a>
   `;
@@ -60,8 +74,12 @@ async function loadConfig(){
   const contact = document.querySelector('#contact-links'); contact.innerHTML = '';
   Object.entries(cfg.links).forEach(([k,v]) => {
     if (!v) return;
-    const nice = k[0].toUpperCase()+k.slice(1);
-    contact.innerHTML += `<a href="${v}" target="_blank" rel="noopener">${nice}</a> · `;
+    if (k === 'resume' && typeof v === 'object') {
+      contact.innerHTML += `<a href="${v.pdf}" target="_blank" rel="noopener">Resume</a> · `;
+    } else {
+      const nice = k[0].toUpperCase()+k.slice(1);
+      contact.innerHTML += `<a href="${v}" target="_blank" rel="noopener">${nice}</a> · `;
+    }
   });
 
   // Meta
@@ -315,3 +333,19 @@ function resetProfileResizeGame() {
   
   console.log('🔄 Profile resize game reset!');
 }
+
+// Resume Dropdown Toggle
+function toggleResumeDropdown() {
+  const dropdown = document.getElementById('resume-dropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close dropdown when clicking elsewhere
+document.addEventListener('click', (e) => {
+  const dropdown = document.getElementById('resume-dropdown');
+  const resumeBtn = document.querySelector('.resume-btn');
+  
+  if (dropdown && !dropdown.contains(e.target) && e.target !== resumeBtn) {
+    dropdown.style.display = 'none';
+  }
+});

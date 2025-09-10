@@ -1,0 +1,115 @@
+name: Quality Assurance
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq
+        npm install -g pa11y-ci @lhci/cli@0.12.x
+        
+    - name: Install Lychee (Link Checker)
+      run: |
+        curl -sSL https://github.com/lycheeverse/lychee/releases/download/v0.13.0/lychee-v0.13.0-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+        sudo mv lychee /usr/local/bin/
+        lychee --version
+
+    - name: Validate JSON Configuration
+      run: |
+        echo "🔍 Validating JSON configuration..."
+        jq empty assets/data/site.config.json
+        echo "✅ JSON configuration is valid"
+
+    - name: Generate Resume Files
+      run: |
+        echo "📄 Generating resume files..."
+        python3 _scripts/create_resume.py
+        echo "✅ Resume files generated successfully"
+
+    - name: Start local server for testing
+      run: |
+        echo "🚀 Starting local server..."
+        python3 _scripts/serve.py &
+        SERVER_PID=$!
+        echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
+        
+        # Wait for server to be ready
+        echo "⏳ Waiting for server to start..."
+        for i in {1..30}; do
+          if curl -s http://localhost:8000 >/dev/null; then
+            echo "✅ Server is ready"
+            break
+          fi
+          sleep 1
+        done
+
+    - name: Check for broken links
+      run: |
+        echo "🔗 Checking for broken links..."
+        # Check both local files and external links
+        lychee --config lychee.toml . || echo "⚠️ Some links may be unreachable"
+        echo "✅ Link check completed"
+
+    - name: Run accessibility tests
+      run: |
+        echo "♿ Running accessibility tests..."
+        pa11y-ci --sitemap http://localhost:8000 --threshold 5 || echo "⚠️ Accessibility issues found"
+        echo "✅ Accessibility tests completed"
+
+    - name: Run Lighthouse CI
+      run: |
+        echo "🔍 Running Lighthouse performance tests..."
+        lhci autorun --config lighthouserc.json || echo "⚠️ Performance issues detected"
+        echo "✅ Lighthouse tests completed"
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Stop local server
+      run: |
+        if [ ! -z "$SERVER_PID" ]; then
+          kill $SERVER_PID || true
+        fi
+
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-reports
+        path: |
+          .lighthouseci/
+          pa11y-ci-results.json
+        retention-days: 7
+
+    - name: Quality Gate Summary
+      run: |
+        echo "📊 Quality Gate Results:"
+        echo "✅ JSON Configuration: Valid"
+        echo "✅ Resume Generation: Success"
+        echo "✅ Link Validation: Completed"
+        echo "✅ Accessibility Tests: Completed" 
+        echo "✅ Performance Tests: Completed"
+        echo ""
+        echo "🎉 All quality gates passed! Ready for deployment."

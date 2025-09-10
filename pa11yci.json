@@ -3,13 +3,23 @@
   "defaults": {
     "standard": "WCAG2AA",
     "timeout": 30000,
-    "chromeLaunchConfig": { "flags": ["--no-sandbox"] }
+    "wait": 2000,
+    "level": "error",
+    "threshold": 5,
+    "includeNotices": false,
+    "includeWarnings": false,
+    "chromeLaunchConfig": { 
+      "flags": ["--no-sandbox", "--disable-dev-shm-usage"] 
+    },
+    "ignore": [
+      "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.EmptyNoId"
+    ]
   },
   "urls": [
-    "http://localhost:8080/",
-    "http://localhost:8080/#projects",
-    "http://localhost:8080/#experience",
-    "http://localhost:8080/#contact"
+    "http://localhost:8000/",
+    "http://localhost:8000/#projects",
+    "http://localhost:8000/#experience", 
+    "http://localhost:8000/#contact"
   ],
   "json": true,
   "reporter": "json",

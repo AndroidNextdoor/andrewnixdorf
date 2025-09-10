@@ -11,14 +11,23 @@ This is a zero-build, static portfolio website optimized for GitHub Pages deploy
 ### Local Development
 ```bash
 # Start local development server
-python3 -m http.server 8000
+python3 _scripts/serve.py
 # Access at http://localhost:8000
+
+# Alternative (manual method)
+python3 -m http.server 8000
+```
+
+### Resume Generation
+```bash
+# Generate both PDF and DOCX resume formats
+python3 _scripts/create_resume.py
 ```
 
 ### Quality Assurance
 ```bash
 # Validate JSON configuration
-jq . data/site.config.json
+jq . assets/data/site.config.json
 
 # Check for broken links (requires lychee)
 lychee --config lychee.toml .
@@ -33,7 +42,7 @@ lhci autorun
 ## Architecture & Structure
 
 ### Data-Driven Content System
-All site content is managed through `data/site.config.json`. This includes:
+All site content is managed through `assets/data/site.config.json`. This includes:
 - Personal information and contact details
 - Project portfolio with descriptions and links
 - Professional experience and skills
@@ -44,7 +53,10 @@ All site content is managed through `data/site.config.json`. This includes:
 - `js/app.js` - Dynamic content loader that populates HTML from JSON config
 - `css/style.css` - Responsive CSS with custom properties and mobile-first design
 - `sw.js` - Service worker for PWA functionality and caching
-- `data/site.config.json` - Central content configuration file
+- `assets/data/site.config.json` - Central content configuration file
+- `_scripts/` - Development and build scripts
+  - `serve.py` - Local development server
+  - `create_resume.py` - Resume generation script
 
 ### Progressive Web App Features
 - Service worker caches critical assets for offline functionality
@@ -54,10 +66,16 @@ All site content is managed through `data/site.config.json`. This includes:
 ## Content Management
 
 ### Making Content Changes
-1. Edit `data/site.config.json` for all text content, projects, and experience
-2. Replace `assets/resume.pdf` when updating resume
+1. Edit `assets/data/site.config.json` for all text content, projects, and experience
+2. Run `python3 _scripts/create_resume.py` to regenerate resume files after content changes
 3. Update `assets/logo.svg` for branding changes
 4. Modify `css/style.css` for styling updates
+
+### Resume Management
+The site supports both PDF and DOCX resume formats:
+- Resumes are auto-generated from `assets/data/site.config.json`
+- Users can select format via dropdown: PDF or DOCX
+- To update resumes: modify the config file and run the resume generation script
 
 ### JSON Configuration Structure
 The site config contains these main sections:
