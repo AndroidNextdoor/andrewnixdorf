@@ -203,7 +203,7 @@ def check_broken_links():
     return run_command(
         "lychee --config test/lychee.toml .",
         "Link validation",
-        allow_failure=True  # Some links may be unreachable
+        allow_failure=False  # Links should be valid
     )
 
 def run_accessibility_tests(port=8001):
@@ -234,7 +234,7 @@ def run_accessibility_tests(port=8001):
         result = run_command(
             f"pa11y-ci --config {temp_config} --reporter json > .pa11yci/pa11y-report.json 2>&1 || true",
             "Accessibility tests",
-            allow_failure=True  # May have minor accessibility issues
+            allow_failure=False  # Accessibility compliance is required
         )
     finally:
         # Clean up temp config
@@ -276,7 +276,7 @@ def run_lighthouse_tests(port=8001):
         result = run_command(
             f"lhci autorun --config {temp_config}",
             "Lighthouse performance tests",
-            allow_failure=True  # May have minor performance issues
+            allow_failure=False  # Performance thresholds must be met
         )
     finally:
         # Clean up temp config
