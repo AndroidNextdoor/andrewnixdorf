@@ -8,19 +8,19 @@
   <meta property="og:title" content="Andrew Nixdorf — SDET • QA • AI">
   <meta property="og:description" content="Lead SDET @ Zywave. QA automation, Katalon, AWS Bedrock, RAG, DevOps.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/stoked-logo.png">
-  <link rel="icon" href="./assets/stoked-logo.png">
+  <meta property="og:image" content="./assets/images/stoked-logo.png">
+  <link rel="icon" href="./assets/images/stoked-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <title>Andrew Nixdorf — SDET • QA • AI</title>
+  <title>Andrew Nixdorf</title>
 </head>
 <body>
   <header class="container nav">
     <div class="brand">
-      <img src="./assets/stoked-logo.png" alt="logo">
-      <strong>Andrew Nixdorf</strong>
+      <img src="./assets/images/stoked-logo.png" alt="logo">
+      <strong>DevSecOps • QA • AI</strong>
     </div>
     <nav>
       <a href="#projects">Projects</a> &nbsp;·&nbsp;
@@ -30,13 +30,18 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1 id="name">Andrew Nixdorf</h1>
-      <p id="role" class="visually-hidden">Lead SDET • QA Automation • AI + AWS</p>
-      <p id="summary">Problem-solver and master test crafter.</p>
-      <div class="tags" id="tags" aria-hidden="true"></div>
-      <div class="resume" id="hero-links"></div>
-    </section>
+    <div class="hero-layout">
+      <section class="hero-content">
+        <h1 id="name">Andrew Nixdorf</h1>
+        <p id="role" class="visually-hidden">Lead SDET • QA Automation • AI + AWS</p>
+        <p id="summary">Problem-solver and master test crafter.</p>
+        <div class="tags" id="tags" aria-hidden="true"></div>
+        <div class="resume" id="hero-links"></div>
+      </section>
+      <aside class="hero-image">
+        <img src="./assets/images/ProfilePic.jpeg" alt="Andrew Nixdorf Profile" class="profile-pic">
+      </aside>
+    </div>
 
     <section class="section" id="projects-section">
       <h2>Projects</h2>
@@ -57,30 +62,48 @@
   <!-- Hidden Easter Eggs -->
   <div id="konami-egg" class="easter-egg hidden">
     <div class="test-banner">
-      🧪 TEST MODE ACTIVATED 🧪<br>
-      <small>All bugs are features until proven otherwise!</small>
+      🧪 CHEAT MODE ACTIVATED 🧪<br>
+      <small>Gamers get extra points!</small>
     </div>
   </div>
   
   <div id="click-egg" class="easter-egg hidden">
     <div class="achievement-popup">
-      🏆 Achievement Unlocked: "Persistent Tester"<br>
-      <small>You clicked the logo 10 times. That's some serious QA dedication!</small>
+      🏆 Persistence pays off 🏆<br>
+      <small>Can you find all the Easter eggs?</small>
     </div>
   </div>
 
   <div id="secret-commands" class="easter-egg hidden">
     <div class="console-output">
-      > test --help<br>
-      Available commands: debug, selenium, cypress, playwright<br>
-      Type a command to learn more! 🤖
+      Nice work tester! 🤖<br>
+      Try some more commands related to testing...<br>
+    </div>
+  </div>
+
+  <!-- Image Slider Modal -->
+  <div id="image-slider" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeImageSlider()">&times;</span>
+      <div class="slider-container">
+        <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+        <div class="slider-images">
+          <img src="./assets/images/devreno.jpg" alt="/dev/reno Event" class="slider-image active">
+          <img src="./assets/images/reno-gear.jpg" alt="Reno Gear" class="slider-image">
+        </div>
+        <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+      <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
     </div>
   </div>
 
   <footer class="footer">
     <p>© <span id="year"></span> Andrew Nixdorf. All rights reserved.</p>
-    <p class="hint" style="opacity: 0.3; font-size: 11px; margin-top: 8px;">
-      🕵️ Tip: Try the Konami code or clicking around...
+    <p class="hint" style="opacity: 0.2; font-size: 10px; margin-top: 8px;">
+      🕵️ There is much more to find if you look around
     </p>
   </footer>
 

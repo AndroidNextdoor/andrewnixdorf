@@ -1,6 +1,6 @@
 
 const CACHE = "andrewnixdorf-portfolio-v1";
-const ASSETS = ["./","./index.html","./css/style.css","./js/app.js","./assets/data/site.config.json"];
+const ASSETS = ["./","./index.html","./css/style.css","./js/app.js","./assets/data/site.config.json","./assets/images/stoked-logo.png","./assets/images/devreno.jpg","./assets/images/reno-gear.jpg"];
 
 self.addEventListener("install",(e)=>{
   e.waitUntil(
