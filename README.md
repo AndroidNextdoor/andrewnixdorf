@@ -20,23 +20,31 @@ python3 _scripts/serve.py
 ## 📁 Project Structure
 
 ```
-├── index.html              # Main template
+├── index.html              # Main template with optimized meta tags
+├── robots.txt              # SEO crawler instructions for recruiters
+├── sitemap.xml             # Search engine sitemap
 ├── assets/
 │   ├── data/site.config.json  # Content configuration
 │   ├── andrew-nixdorf-resume.pdf     # Generated PDF resume
 │   ├── andrew-nixdorf-resume.docx    # Generated DOCX resume
-│   └── logo.svg               # Site branding
-├── js/app.js               # Dynamic content loader
-├── css/style.css           # Responsive styling
-├── sw.js                   # Service worker (PWA)
+│   └── images/             # Profile and project images
+├── js/
+│   ├── app.js              # Core application logic
+│   ├── ee.js               # Easter egg functionality (async loaded)
+│   └── sw.js               # Service worker (PWA)
+├── css/style.css           # Responsive styling with critical CSS inlined
 ├── test/                   # Testing configurations
 │   ├── lychee.toml         # Link checker config
 │   ├── pa11yci.json        # Accessibility test config
 │   └── lighthouserc.json   # Performance test config
-└── _scripts/
-    ├── serve.py            # Development server
-    ├── create_resume.py    # Resume generator
-    └── run_tests.py        # Local testing (mirrors CI/CD)
+├── _scripts/
+│   ├── serve.py            # Development server
+│   ├── create_resume.py    # Resume generator
+│   └── run_tests.py        # Centralized testing script (mirrors CI/CD)
+├── .lycheeci/              # Lychee test reports
+├── .lighthouseci/          # Lighthouse test reports
+└── .claude/                # Claude Code configuration with security rules
+    └── settings.json       # Permissions and MCP server setup
 ```
 
 ## ✨ Features
@@ -47,6 +55,9 @@ python3 _scripts/serve.py
 - **Responsive Design**: Mobile-first with CSS Grid/Flexbox
 - **Accessibility**: WCAG2AA compliant with automated testing
 - **Performance**: <100KB total assets, optimized for speed
+- **SEO Optimized**: Recruiter-focused optimization with robots.txt and structured data
+- **Interactive Elements**: Easter eggs including Konami code and profile picture game
+- **Security Configured**: Claude Code permissions with comprehensive allow/deny rules
 
 ## 🛠️ Development Scripts
 
@@ -98,15 +109,46 @@ See [.idea/IDEA_CONFIGURATIONS.md](test/TESTING.md) for complete details.
 
 ## 🔧 Customization
 
-- **Content**: Edit `assets/data/site.config.json`
-- **Styling**: Modify `css/style.css` (uses CSS custom properties)
-- **Branding**: Replace `assets/images/stoked-logo.png`
-- **Resume**: Content auto-generated from config, supports dropdown format selection
+To adapt this portfolio for your own use:
+
+1. **Update Content**: Modify `assets/data/site.config.json` with your information
+2. **Replace Images**: Add your photos to `assets/images/`
+3. **Customize Styling**: Edit `css/style.css` for personal branding
+4. **Domain Setup**: Update CNAME file, sitemap.xml, and robots.txt with your domain
+5. **SEO Configuration**: Update meta tags and structured data for your information
+6. **Resume Generation**: Run `python3 _scripts/create_resume.py` to generate new files
+7. **Testing**: Use `python3 _scripts/run_tests.py` to validate all changes
 
 ## 🚢 Deployment
 
 - **Auto-Deploy**: Pushes to `main` branch trigger GitHub Pages deployment
 - **Quality Gates**: CI runs accessibility, performance, and link validation tests
 - **Custom Domain**: Configured for andrewnixdorf.com with HTTPS
+- **SEO Ready**: Optimized for search engines and recruiter discovery
+
+## 🎯 Recent Updates
+
+### Performance Optimizations
+- **Critical CSS Inlined**: Faster initial page rendering
+- **Async Loading**: Easter eggs and non-critical resources load after main content
+- **Resource Preloading**: LCP image and critical assets prioritized
+- **Font Optimization**: Async font loading prevents render blocking
+
+### SEO & Recruitment Focus
+- **robots.txt**: Optimized for recruiter and hiring manager discovery
+- **sitemap.xml**: Enhanced search engine indexing
+- **Structured Data**: JSON-LD markup for rich search results
+- **Meta Tags**: Recruitment-focused keywords and social media optimization
+
+### Testing Infrastructure
+- **Centralized Testing**: Single `run_tests.py` script mirrors CI/CD pipeline
+- **Quality Thresholds**: Performance (50%), Accessibility (90%), SEO (90%)
+- **CI/CD Ready**: All test configs optimized for headless environments
+- **Report Organization**: Dedicated directories for test artifacts
+
+### Security & Configuration
+- **Claude Code Integration**: Comprehensive permissions and security rules
+- **MCP Servers**: GitHub and LinkedIn integrations configured
+- **Easter Eggs**: Separated into async-loaded module for better performance
 
 ---

@@ -120,3 +120,33 @@ The site enforces quality standards through CI:
 - Modern browsers with ES6+ support
 - CSS Grid and Flexbox support required
 - Service Worker support for PWA features
+
+## Recent Updates & Important Notes
+
+### SEO & Recruitment Optimization
+- `robots.txt` - Optimized for recruiter discovery with targeted crawling instructions
+- `sitemap.xml` - Enhanced for search engine indexing of key content
+- Meta tags enhanced with recruitment-focused keywords and structured data
+- LinkedIn, Twitter/X card optimization for professional sharing
+
+### Performance Optimizations  
+- Critical CSS inlined in HTML head for faster rendering
+- Easter egg functionality moved to separate `js/ee.js` file loaded asynchronously
+- Resource preloading for LCP image and critical assets
+- Async font loading to prevent render blocking
+
+### Testing Infrastructure
+- **Centralized Testing**: Use `python3 _scripts/run_tests.py` for all quality gates
+- **Test Reports**: Lychee reports saved to `.lycheeci/` directory
+- **CI/CD Ready**: All test configs optimized for headless browser environments
+- **Quality Thresholds**: Performance (50%), Accessibility (90%), SEO (90%)
+
+### Security Configuration
+- Claude Code permissions configured with allow/deny rules in `.claude/settings.json`
+- Comprehensive security deny rules prevent dangerous operations
+- Allow list includes only essential development operations
+
+### File Organization
+- All test configurations moved to `test/` directory
+- Easter egg functionality separated for better maintainability
+- Reports organized in dedicated directories (`.lycheeci/`, `.lighthouseci/`)
