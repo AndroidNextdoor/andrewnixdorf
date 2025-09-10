@@ -200,6 +200,9 @@ def check_broken_links():
     """Check for broken links."""
     print_step("Checking for Broken Links", "🔗")
     
+    # Create lychee output directory
+    os.makedirs('.lycheeci', exist_ok=True)
+    
     return run_command(
         "lychee --config test/lychee.toml .",
         "Link validation",

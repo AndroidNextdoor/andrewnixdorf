@@ -11,7 +11,7 @@ const originalProfileSize = 240;
 let isGrowing = false;
 
 // Logo Click Counter & Profile Picture Click
-document.addEventListener('DOMContentLoaded', () => {
+function initializeEasterEggs() {
   const logo = document.querySelector('.brand img');
   if (logo) {
     logo.addEventListener('click', () => {
@@ -37,7 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     profilePic.style.cursor = 'pointer';
   }
-});
+}
+
+// Initialize immediately since DOM is already loaded when this script runs
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeEasterEggs);
+} else {
+  initializeEasterEggs();
+}
 
 // Konami Code Detection
 document.addEventListener('keydown', (e) => {
