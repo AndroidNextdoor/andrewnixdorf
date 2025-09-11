@@ -78,6 +78,7 @@ jobs:
       if: always()
       with:
         name: test-reports
-        path: ./*ci/
-        if-no-files-found: warn
+        path: |
+          /.*ci/*
+        if-no-files-found: error
         retention-days: 7
