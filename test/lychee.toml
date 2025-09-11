@@ -25,7 +25,7 @@ exclude = [
 exclude_path = [".github", "_scripts"]
 
 # Output file
-output = ".lycheeci/lychee-report.md"
+output = "test-reports/lychee/lychee-report.md"
 
 # User agent string
 user_agent = "lychee/andrewnixdorf-portfolio"

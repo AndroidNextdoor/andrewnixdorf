@@ -21,6 +21,7 @@ import time
 import signal
 import argparse
 import subprocess
+import shutil
 from pathlib import Path
 
 # Colors for output
@@ -200,8 +201,8 @@ def check_broken_links():
     """Check for broken links."""
     print_step("Checking for Broken Links", "🔗")
     
-    # Create lychee output directory
-    os.makedirs('.lycheeci', exist_ok=True)
+    # Create consolidated test reports directory
+    os.makedirs('test-reports/lychee', exist_ok=True)
 
     run_command(
         "pwd; ls -la",
@@ -230,8 +231,8 @@ def run_accessibility_tests(port=8001):
     original_urls = config.get('urls', [])
     config['urls'] = [url.replace('http://localhost:8000', f'http://localhost:{port}') for url in original_urls]
     
-    # Create pa11y report directory
-    os.makedirs('.pa11yci', exist_ok=True)
+    # Create consolidated pa11y report directory
+    os.makedirs('test-reports/pa11y', exist_ok=True)
     
     # Write temporary config
     temp_config = "test/pa11yci_temp.json"
@@ -241,7 +242,7 @@ def run_accessibility_tests(port=8001):
     try:
         # Run pa11y with JSON output and save to file
         result = run_command(
-            f"pa11y-ci --config {temp_config} --reporter json > .pa11yci/pa11y-report.json 2>&1 || true",
+            f"pa11y-ci --config {temp_config} --reporter json > test-reports/pa11y/pa11y-report.json 2>&1 || true",
             "Accessibility tests",
             allow_failure=False  # Accessibility compliance is required
         )
@@ -256,41 +257,15 @@ def run_lighthouse_tests(port=8001):
     """Run Lighthouse performance tests."""
     print_step("Running Lighthouse Performance Tests", "🔍")
     
-    # Update lighthouse config to use the correct port
-    config_path = "test/lighthouserc.json"
+    # Create lighthouse output directory
+    os.makedirs('test-reports/lighthouse', exist_ok=True)
     
-    # Read current config
-    with open(config_path, 'r') as f:
-        config = json.load(f)
-    
-    # Update URLs to use the specified port
-    if 'ci' in config and 'collect' in config['ci']:
-        if 'url' in config['ci']['collect']:
-            if isinstance(config['ci']['collect']['url'], list):
-                config['ci']['collect']['url'] = [
-                    url.replace('http://localhost:8000', f'http://localhost:{port}') 
-                    for url in config['ci']['collect']['url']
-                ]
-            else:
-                config['ci']['collect']['url'] = config['ci']['collect']['url'].replace(
-                    'http://localhost:8000', f'http://localhost:{port}'
-                )
-    
-    # Write temporary config
-    temp_config = "test/lighthouserc_temp.json"
-    with open(temp_config, 'w') as f:
-        json.dump(config, f, indent=2)
-    
-    try:
-        result = run_command(
-            f"lhci autorun --config {temp_config}",
-            "Lighthouse performance tests",
-            allow_failure=False  # Performance thresholds must be met
-        )
-    finally:
-        # Clean up temp config
-        if os.path.exists(temp_config):
-            os.remove(temp_config)
+    # Run lighthouse with URL override (uses default .lighthouseci output)
+    result = run_command(
+        f"lhci autorun --config test/lighthouserc.json --url http://localhost:{port}/",
+        "Lighthouse performance tests",
+        allow_failure=False  # Performance thresholds must be met
+    )
     
     return result
 
@@ -303,9 +278,9 @@ def main():
     args = parser.parse_args()
     
     print(f"{Colors.HEADER}{Colors.BOLD}")
-    print("🧪 LOCAL QUALITY ASSURANCE TESTING")
+    print("🧪 QUALITY ASSURANCE TESTING")
     print("=" * 35)
-    print(f"Mirroring CI/CD pipeline locally{Colors.END}")
+    print(f"Running CI/CD testing {Colors.END}")
     
     # Get project root
     script_dir = Path(__file__).parent

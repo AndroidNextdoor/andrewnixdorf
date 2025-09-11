@@ -1,16 +1,13 @@
-// Easter Eggs functionality
 let clickCount = 0;
 let konamiSequence = [];
 const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
 
-// Secondary Easter Egg - Profile Picture Resize Game
 let gamerModeUnlocked = false;
 let profileResizeMode = false;
 let currentProfileSize = 240;
 const originalProfileSize = 240;
 let isGrowing = false;
 
-// Logo Click Counter & Profile Picture Click
 function initializeEasterEggs() {
   const logo = document.querySelector('.brand img');
   if (logo) {
