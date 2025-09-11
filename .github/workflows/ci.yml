@@ -78,9 +78,6 @@ jobs:
       if: always()
       with:
         name: test-reports
-        path: |
-          .lighthouseci/*
-          .lycheeci/*
-          .pa11yci/*
+        path: ./*ci/
         if-no-files-found: warn
         retention-days: 7
