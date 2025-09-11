@@ -58,6 +58,20 @@ jobs:
         ls -la .lighthouseci/ || echo "No .lighthouseci directory"
         ls -la .lycheeci/ || echo "No .lycheeci directory"  
         ls -la .pa11yci/ || echo "No .pa11yci directory"
+        
+        # Create placeholder files if directories are empty
+        if [ ! "$(ls -A .lighthouseci 2>/dev/null)" ]; then
+          echo "No Lighthouse reports generated" > .lighthouseci/no-reports.txt
+        fi
+        if [ ! "$(ls -A .lycheeci 2>/dev/null)" ]; then
+          echo "No lychee reports generated" > .lycheeci/no-reports.txt
+        fi
+        if [ ! "$(ls -A .pa11yci 2>/dev/null)" ]; then
+          echo "No pa11y reports generated" > .pa11yci/no-reports.txt
+        fi
+        
+        echo "Final artifact directory contents:"
+        find .lighthouseci .lycheeci .pa11yci -type f 2>/dev/null || echo "No files found"
 
     - name: Upload test reports
       uses: actions/upload-artifact@v4
@@ -65,8 +79,8 @@ jobs:
       with:
         name: test-reports
         path: |
-          .lighthouseci/
-          .lycheeci/
-          .pa11yci/
+          .lighthouseci/*
+          .lycheeci/*
+          .pa11yci/*
         if-no-files-found: warn
         retention-days: 7
