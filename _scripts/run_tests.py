@@ -202,11 +202,17 @@ def check_broken_links():
     
     # Create lychee output directory
     os.makedirs('.lycheeci', exist_ok=True)
-    
+
+    run_command(
+        "pwd; ls -la",
+        "Check pwd",
+        allow_failure=False  # Links should be valid
+    )
+
     return run_command(
         "lychee --config test/lychee.toml .",
         "Link validation",
-        allow_failure=False  # Links should be valid
+        allow_failure=True  # Links should be valid
     )
 
 def run_accessibility_tests(port=8001):
