@@ -1,9 +1,9 @@
 
-# Andrew Nixdorf — Portfolio
+# Andrew Nixdorf — Personal Site
 
 A zero-build, static portfolio website deployed on GitHub Pages with automated CI/CD. Content is data-driven through JSON configuration and supports multiple resume formats.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Local Development
 ```bash
@@ -17,37 +17,7 @@ python3 _scripts/serve.py
 2. Run `python3 _scripts/create_resume.py` to regenerate resume files
 3. Test changes locally before pushing
 
-## 📁 Project Structure
-
-```
-├── index.html              # Main template with optimized meta tags
-├── robots.txt              # SEO crawler instructions for recruiters
-├── sitemap.xml             # Search engine sitemap
-├── assets/
-│   ├── data/site.config.json  # Content configuration
-│   ├── andrew-nixdorf-resume.pdf     # Generated PDF resume
-│   ├── andrew-nixdorf-resume.docx    # Generated DOCX resume
-│   └── images/             # Profile and project images
-├── js/
-│   ├── app.js              # Core application logic
-│   ├── ee.js               # Easter egg functionality (async loaded)
-│   └── sw.js               # Service worker (PWA)
-├── css/style.css           # Responsive styling with critical CSS inlined
-├── test/                   # Testing configurations
-│   ├── lychee.toml         # Link checker config
-│   ├── pa11yci.json        # Accessibility test config
-│   └── lighthouserc.json   # Performance test config
-├── _scripts/
-│   ├── serve.py            # Development server
-│   ├── create_resume.py    # Resume generator
-│   └── run_tests.py        # Centralized testing script (mirrors CI/CD)
-├── .lycheeci/              # Lychee test reports
-├── .lighthouseci/          # Lighthouse test reports
-└── .claude/                # Claude Code configuration with security rules
-    └── settings.json       # Permissions and MCP server setup
-```
-
-## ✨ Features
+## Features
 
 - **Data-Driven**: All content managed through JSON configuration
 - **Multi-Format Resume**: Auto-generated PDF and DOCX from content
@@ -59,7 +29,7 @@ python3 _scripts/serve.py
 - **Interactive Elements**: Easter eggs including Konami code and profile picture game
 - **Security Configured**: Claude Code permissions with comprehensive allow/deny rules
 
-## 🛠️ Development Scripts
+## Development Scripts
 
 ### Full Test Suite (Recommended)
 ```bash
@@ -107,9 +77,7 @@ Pre-configured run configurations are available for easy development:
 
 See [.idea/IDEA_CONFIGURATIONS.md](test/TESTING.md) for complete details.
 
-## 🔧 Customization
-
-To adapt this portfolio for your own use:
+## Customization
 
 1. **Update Content**: Modify `assets/data/site.config.json` with your information
 2. **Replace Images**: Add your photos to `assets/images/`
@@ -119,36 +87,11 @@ To adapt this portfolio for your own use:
 6. **Resume Generation**: Run `python3 _scripts/create_resume.py` to generate new files
 7. **Testing**: Use `python3 _scripts/run_tests.py` to validate all changes
 
-## 🚢 Deployment
+## Deployment
 
 - **Auto-Deploy**: Pushes to `main` branch trigger GitHub Pages deployment
 - **Quality Gates**: CI runs accessibility, performance, and link validation tests
 - **Custom Domain**: Configured for andrewnixdorf.com with HTTPS
 - **SEO Ready**: Optimized for search engines and recruiter discovery
-
-## 🎯 Recent Updates
-
-### Performance Optimizations
-- **Critical CSS Inlined**: Faster initial page rendering
-- **Async Loading**: Easter eggs and non-critical resources load after main content
-- **Resource Preloading**: LCP image and critical assets prioritized
-- **Font Optimization**: Async font loading prevents render blocking
-
-### SEO & Recruitment Focus
-- **robots.txt**: Optimized for recruiter and hiring manager discovery
-- **sitemap.xml**: Enhanced search engine indexing
-- **Structured Data**: JSON-LD markup for rich search results
-- **Meta Tags**: Recruitment-focused keywords and social media optimization
-
-### Testing Infrastructure
-- **Centralized Testing**: Single `run_tests.py` script mirrors CI/CD pipeline
-- **Quality Thresholds**: Performance (50%), Accessibility (90%), SEO (90%)
-- **CI/CD Ready**: All test configs optimized for headless environments
-- **Report Organization**: Dedicated directories for test artifacts
-
-### Security & Configuration
-- **Claude Code Integration**: Comprehensive permissions and security rules
-- **MCP Servers**: GitHub and LinkedIn integrations configured
-- **Easter Eggs**: Separated into async-loaded module for better performance
 
 ---
