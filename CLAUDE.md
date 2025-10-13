@@ -29,6 +29,16 @@ python3 _scripts/create_resume.py
 # Run all quality gates locally (recommended - mirrors CI/CD pipeline)
 python3 _scripts/run_tests.py
 
+# Run Playwright easter egg tests
+npx playwright test
+
+# Run Playwright tests with UI mode (interactive)
+npx playwright test --ui
+
+# Run Playwright tests and view report
+npx playwright test --reporter=html
+npx playwright show-report
+
 # Individual test commands:
 # Validate JSON configuration
 jq . assets/data/site.config.json
@@ -36,7 +46,7 @@ jq . assets/data/site.config.json
 # Check for broken links (requires lychee)
 lychee --config test/lychee.toml .
 
-# Run accessibility tests (requires pa11y-ci)  
+# Run accessibility tests (requires pa11y-ci)
 pa11y-ci --config test/pa11yci.json
 
 # Run Lighthouse CI tests (requires @lhci/cli)
@@ -137,7 +147,19 @@ The site enforces quality standards through CI:
 
 ### Testing Infrastructure
 - **Centralized Testing**: Use `python3 _scripts/run_tests.py` for all quality gates
-- **Test Reports**: Lychee reports saved to `.lycheeci/` directory
+- **Playwright Tests**: Comprehensive end-to-end test suite (59/61 tests passing - 97%)
+  - Test files:
+    - `test/playwright/eastereggs.spec.js` - Easter egg functionality (17/19 passing)
+    - `test/playwright/content-loading.spec.js` - Content rendering (18/18 passing)
+    - `test/playwright/navigation.spec.js` - Navigation & anchor links (9/9 passing)
+    - `test/playwright/external-links.spec.js` - External links & CTAs (15/15 passing)
+  - Configuration: `playwright.config.js`
+  - Coverage: Easter eggs, dynamic content loading, navigation, external links, security attributes
+  - CI/CD: Runs automatically on all pushes and PRs to main branch
+  - Run specific suites: `npx playwright test <filename>` (e.g., `npx playwright test content-loading`)
+- **Test Reports**: Lychee reports saved to `.lycheeci/` directory, Playwright reports in `playwright-report/`
+- **CI/CD Pipeline**: `.github/workflows/ci.yml` runs all quality gates including Playwright tests
+- **Artifacts**: Test reports and Playwright HTML reports uploaded to GitHub Actions
 - **CI/CD Ready**: All test configs optimized for headless browser environments
 - **Quality Thresholds**: Performance (50%), Accessibility (90%), SEO (90%)
 

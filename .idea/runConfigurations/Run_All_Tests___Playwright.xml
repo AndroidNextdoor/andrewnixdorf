@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run All Tests + Playwright" type="CompoundRunConfigurationType">
+    <toRun name="Run All Tests" type="PythonConfigurationType" />
+    <toRun name="Playwright Easter Egg Tests" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

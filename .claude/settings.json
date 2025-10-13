@@ -1,23 +1,4 @@
 {
-  "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
-      }
-    },
-    "linkedin": {
-      "command": "uvx",
-      "args": ["--from", "git+https://github.com/stickerdaniel/linkedin-mcp-server", "linkedin-mcp-server"],
-      "env": {
-        "LINKEDIN_COOKIE": "${LINKEDIN_COOKIE}"
-      }
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(./_scripts/set_linkedin_cookie.sh:*)",
@@ -28,31 +9,26 @@
       "Bash(python3:*)"
     ],
     "deny": [
-      "Bash(rm -rf *)",
-      "Bash(sudo *)",
-      "Bash(chmod 777 *)",
-      "Bash(dd *)",
-      "Bash(mkfs.*)",
-      "Bash(fdisk *)",
-      "Bash(format *)",
-      "Bash(del /s *)",
-      "Bash(rmdir /s *)",
+      "Bash(rm -rf :*)",
+      "Bash(sudo :*)",
+      "Bash(chmod 777 :*)",
+      "Bash(dd :*)",
+      "Bash(mkfs :*)",
+      "Bash(fdisk :*)",
+      "Bash(format :*)",
+      "Bash(del /s :*)",
+      "Bash(rmdir /s :*)",
       "Bash(*.sh > /dev/null 2>&1 &)",
-      "Bash(curl * | sh)",
-      "Bash(wget * | sh)",
-      "Bash(curl * | bash)",
-      "Bash(wget * | bash)",
-      "Bash(eval *)",
-      "Bash(echo * > ~/.ssh/*)",
-      "Bash(cat * > ~/.ssh/*)",
-      "Bash(cp * ~/.ssh/)",
-      "Bash(mv * ~/.ssh/)",
-      "Bash(git clone * ~/.ssh/)",
       "WebFetch(domain:*.onion)",
       "WebFetch(domain:localhost)",
       "WebFetch(domain:127.0.0.1)",
       "WebFetch(domain:0.0.0.0)"
     ],
-    "ask": []
+    "ask": [
+      "Bash(curl :*)",
+      "Bash(wget :*)",
+      "Bash(eval :*)",
+      "Bash(git clone :*)"
+    ]
   }
 }

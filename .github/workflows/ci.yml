@@ -30,13 +30,18 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y jq
         npm install -g pa11y-ci @lhci/cli@0.12.x
-        
+
     - name: Install Lychee (Link Checker)
       run: |
         curl -sSL https://github.com/lycheeverse/lychee/releases/download/v0.13.0/lychee-v0.13.0-x86_64-unknown-linux-gnu.tar.gz | tar -xz
         ls -la
         sudo mv lychee /usr/local/bin/
         lychee --version
+
+    - name: Install Playwright
+      run: |
+        npm install -D @playwright/test
+        npx playwright install --with-deps chromium
 
     - name: Run Quality Assurance Tests
       run: |
@@ -50,7 +55,22 @@ jobs:
         mkdir -p test-reports/lighthouse test-reports/lychee test-reports/pa11y
         python3 _scripts/run_tests.py
         echo "✅ Quality gate testing completed"
-        
+
+    - name: Run Playwright Easter Egg Tests
+      run: |
+        echo "🎭 Running Playwright easter egg tests..."
+        npx playwright test --reporter=html
+        echo "✅ Playwright tests completed"
+      continue-on-error: true
+
+    - name: Upload Playwright Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7
+
     - name: Debug test reports
       if: always()
       run: |

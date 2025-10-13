@@ -13,5 +13,13 @@ aws.xml
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# Test reports and results
 test-reports/
+test-results/
 .lighthouseci
+
+# Playwright
+playwright-report/
+playwright/.cache/
+test-results/
