@@ -1,7 +1,7 @@
 {
   "name": "Andrew Nixdorf",
   "role": "AI Quality Engineering \u2022 SDET \u2022 Edge AI",
-  "summary": "I make AI systems trustworthy. As a Lead SDET, I design quality frameworks for LLM-powered applications \u2014 from model evaluation and output validation to edge AI deployment testing on NVIDIA Jetson. I enable engineering teams to adopt AI tools effectively, champion best practices for agentic workflows, and organize the /dev/reno developer community in Reno, NV.",
+  "summary": "I make AI systems trustworthy. As a Lead SDET, I design quality frameworks for LLM-powered applications \u2014 prompt evaluation, output validation, and model regression testing. I enable engineering teams to adopt AI tools effectively and organize the /dev/reno developer community in Reno, NV. Outside work, I tinker with edge AI on NVIDIA Jetson.",
   "keywords": [
     "AI Testing",
     "LLM Evaluation",
@@ -97,7 +97,6 @@
       "highlights": [
         "Designing AI quality frameworks for LLM-powered features \u2014 prompt evaluation, output validation, and model regression testing",
         "Enabling engineering teams to adopt AI tools effectively \u2014 training on agentic workflows, Claude Code best practices, and AI-assisted development",
-        "Prototyping edge-AI testing workflows on NVIDIA Jetson for on-device model evaluation and inference quality validation",
         "Architected CI/CD pipelines and Docker-based testing environments on AWS with Playwright and Terraform",
         "Leading QA transformation initiatives and mentoring junior SDETs across multiple product teams"
       ]
@@ -114,9 +113,19 @@
       ]
     },
     {
+      "company": "Three Corner Software",
+      "title": "Senior Software Testing Engineer",
+      "period": "2015 \u2014 2020",
+      "highlights": [
+        "Tested Guidewire platform integrations for insurance industry clients including CopperPoint Insurance in Arizona",
+        "Validated policy administration, billing, and claims management workflows across Guidewire InsuranceSuite modules",
+        "Built automated test suites for complex insurance product configurations and rating engine integrations"
+      ]
+    },
+    {
       "company": "Kitewire",
       "title": "DOD Contractor \u2014 Software Engineer & Pen Tester",
-      "period": "2014 \u2014 2020",
+      "period": "2013 \u2014 2015",
       "highlights": [
         "Built and tested applications for the Defense Travel Management Office (DTMO) tracking government travel services and identifying fraudulent expense behavior",
         "Developed certificate management application used across government agencies for training compliance and deadline tracking",
@@ -127,11 +136,22 @@
     {
       "company": "The Sienna (now Renaissance Reno)",
       "title": "IT / Network Engineer",
-      "period": "2012 \u2014 2014",
+      "period": "2011 \u2014 2013",
       "highlights": [
         "Engineered casino networking infrastructure \u2014 hotspots, gateways, and enterprise network equipment across the property",
         "Developed custom iPad application for centralized TV management across the property, orchestrating live NFL broadcasts on game days",
         "Managed IT operations for a large downtown Reno casino property"
+      ]
+    },
+    {
+      "company": "Productive Solutions",
+      "title": "IT Support & Field Technician",
+      "period": "2008 \u2014 2011",
+      "highlights": [
+        "Traveled nationwide to install and configure ticketing, access control, and security systems across transportation hubs, airports, and casinos",
+        "Installed security systems at Las Vegas airport and supported ticketing infrastructure at Long Beach transit and Spokane bus stations",
+        "Managed ticket inventory tracking and sales optimization systems for bus stations across the United States",
+        "Configured ID printing systems for casinos and deployed HR management solutions for client organizations"
       ]
     }
   ],
