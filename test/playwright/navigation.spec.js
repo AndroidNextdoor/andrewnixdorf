@@ -116,8 +116,8 @@ test.describe('Navigation & Anchor Links', () => {
     await page.waitForTimeout(500);
     expect(page.url()).toContain('#contact');
 
-    // Click brand logo
-    const brandLogo = page.locator('.brand img');
+    // Click brand text
+    const brandLogo = page.locator('.brand strong');
     await brandLogo.click();
 
     // Should scroll back to top (URL may or may not change depending on implementation)

@@ -48,8 +48,6 @@ class HomePage {
     this.sliderDots = page.locator(Selectors.sliderDots);
 
     // External Links
-    this.resumeBtn = page.locator(Selectors.resumeBtn);
-    this.resumeDropdown = page.locator(Selectors.resumeDropdown);
     this.linkedinLink = page.locator(Selectors.linkedinLink);
     this.githubLink = page.locator(Selectors.githubLink);
     this.externalLinks = page.locator(Selectors.externalLinks);

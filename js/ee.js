@@ -9,7 +9,7 @@ const originalProfileSize = 240;
 let isGrowing = false;
 
 function initializeEasterEggs() {
-  const logo = document.querySelector('.brand img');
+  const logo = document.querySelector('.brand strong');
   if (logo) {
     logo.addEventListener('click', () => {
       clickCount++;
@@ -246,18 +246,3 @@ function resetProfileResizeGame() {
   console.log('🔄 Profile resize game reset!');
 }
 
-// Resume Dropdown Toggle
-window.toggleResumeDropdown = function() {
-  const dropdown = document.getElementById('resume-dropdown');
-  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-};
-
-// Close dropdown when clicking elsewhere
-document.addEventListener('click', (e) => {
-  const dropdown = document.getElementById('resume-dropdown');
-  const resumeBtn = document.querySelector('.resume-btn');
-  
-  if (dropdown && !dropdown.contains(e.target) && e.target !== resumeBtn) {
-    dropdown.style.display = 'none';
-  }
-});

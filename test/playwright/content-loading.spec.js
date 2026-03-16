@@ -34,23 +34,23 @@ test.describe('Core Content Loading & Rendering', () => {
   test('should render role from config', async () => {
     await expect(homePage.role).toBeVisible();
     const roleText = await homePage.role.textContent();
-    expect(roleText).toContain('Lead SDET');
-    expect(roleText).toContain('QA Automation');
-    expect(roleText).toContain('AI + AWS');
+    expect(roleText).toContain('SDET');
+    expect(roleText).toContain('Edge AI');
+    expect(roleText).toContain('DevSecOps');
   });
 
   test('should render summary from config', async () => {
     await expect(homePage.summary).toBeVisible();
     const summaryText = await homePage.summary.textContent();
-    expect(summaryText).toContain('Problem-solver');
-    expect(summaryText).toContain('test crafter');
+    expect(summaryText).toContain('SDET at Zywave');
+    expect(summaryText).toContain('edge-AI');
   });
 
   test('should render keyword tags from config', async () => {
     await expect(homePage.tags).toBeVisible();
 
     // Check for specific keywords
-    const expectedKeywords = ['SDET', 'Katalon Studio', 'Playwright', 'Cypress', 'AWS Bedrock'];
+    const expectedKeywords = ['SDET', 'Edge AI', 'NVIDIA Jetson', 'Playwright', 'Docker'];
 
     for (const keyword of expectedKeywords) {
       const tag = homePage.tags.locator(`text="${keyword}"`);
@@ -64,15 +64,16 @@ test.describe('Core Content Loading & Rendering', () => {
     const cardCount = await homePage.projectCards.count();
     expect(cardCount).toBeGreaterThan(0);
 
-    // Should have at least 3 projects based on config
-    expect(cardCount).toBeGreaterThanOrEqual(3);
+    // Should have 4 projects based on config
+    expect(cardCount).toBe(4);
   });
 
   test('should render project titles correctly', async () => {
     const expectedProjects = [
-      'AWS Core Modules (Terraform)',
-      'AWS Kickstarter Pro',
-      'Katalon AWS Workshop'
+      'OpenClaw Jetson',
+      'Jetson AI App',
+      'Yahboom Orin Case',
+      '/dev/reno'
     ];
 
     for (const projectTitle of expectedProjects) {

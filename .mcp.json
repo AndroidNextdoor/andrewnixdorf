@@ -13,13 +13,6 @@
         "-y",
         "@upstash/context7-mcp"
       ]
-    },
-    "executeautomation-playwright-server": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@executeautomation/playwright-mcp-server"
-      ]
     }
   }
 }

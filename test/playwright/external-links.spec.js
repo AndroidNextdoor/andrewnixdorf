@@ -37,49 +37,10 @@ test.describe('External Links & CTAs', () => {
     }
   });
 
-  test('should have resume dropdown button', async ({ page }) => {
-    const resumeButton = homePage.resumeBtn;
-    await expect(resumeButton).toBeVisible();
-    await expect(resumeButton).toContainText('Resume');
-  });
-
-  test('should have resume dropdown with PDF and DOCX options', async ({ page }) => {
-    const resumeDropdown = homePage.resumeDropdown;
-
-    // Dropdown should exist (may be hidden initially)
-    const pdfLink = resumeDropdown.locator('a[href*=".pdf"]');
-    const docxLink = resumeDropdown.locator('a[href*=".docx"]');
-
-    await expect(pdfLink).toHaveAttribute('href', /andrew-nixdorf-resume\.pdf/);
-    await expect(docxLink).toHaveAttribute('href', /andrew-nixdorf-resume\.docx/);
-  });
-
-  test('should have PDF resume link with correct attributes', async ({ page }) => {
-    const pdfLink = page.locator('#resume-dropdown a[href*=".pdf"]');
-    await expect(pdfLink).toContainText('PDF');
-    await expect(pdfLink).toHaveAttribute('target', '_blank');
-    await expect(pdfLink).toHaveAttribute('rel', /noopener/);
-
-    const href = await pdfLink.getAttribute('href');
-    expect(href).toContain('.pdf');
-    expect(href).toContain('andrew-nixdorf-resume');
-  });
-
-  test('should have DOCX resume link with correct attributes', async ({ page }) => {
-    const docxLink = page.locator('#resume-dropdown a[href*=".docx"]');
-    await expect(docxLink).toContainText('DOCX');
-    await expect(docxLink).toHaveAttribute('target', '_blank');
-    await expect(docxLink).toHaveAttribute('rel', /noopener/);
-
-    const href = await docxLink.getAttribute('href');
-    expect(href).toContain('.docx');
-    expect(href).toContain('andrew-nixdorf-resume');
-  });
-
   test('should have project repository links that open in new tab', async ({ page }) => {
     const projectRepoLinks = page.locator('#projects a[href*="github.com"]');
     const linkCount = await projectRepoLinks.count();
-    expect(linkCount).toBeGreaterThanOrEqual(3);
+    expect(linkCount).toBeGreaterThanOrEqual(4);
 
     // Check first project link
     const firstLink = projectRepoLinks.first();
@@ -96,9 +57,9 @@ test.describe('External Links & CTAs', () => {
     expect(linkCount).toBeGreaterThan(0);
 
     // Check specific keyword links
-    const katalonLink = page.locator('#tags a[href*="katalon.com"]');
-    await expect(katalonLink).toBeVisible();
-    await expect(katalonLink).toHaveAttribute('target', '_blank');
+    const jetsonLink = page.locator('#tags a[href*="nvidia.com"]').first();
+    await expect(jetsonLink).toBeVisible();
+    await expect(jetsonLink).toHaveAttribute('target', '_blank');
 
     const playwrightLink = page.locator('#tags a[href*="playwright.dev"]');
     await expect(playwrightLink).toBeVisible();
@@ -108,15 +69,15 @@ test.describe('External Links & CTAs', () => {
   test('should verify all keyword links have correct URLs', async ({ page }) => {
     const expectedKeywordLinks = {
       'SDET': 'https://testguild.com/sdet/',
-      'Katalon Studio': 'https://katalon.com/',
+      'Ollama': 'https://ollama.com/',
       'Playwright': 'https://playwright.dev/',
-      'Cypress': 'https://www.cypress.io/',
-      'AWS Bedrock': 'https://aws.amazon.com/bedrock/',
+      'Docker': 'https://www.docker.com/',
+      'AWS': 'https://aws.amazon.com/',
       '/dev/reno': 'https://devreno.us/'
     };
 
     for (const [keyword, expectedUrl] of Object.entries(expectedKeywordLinks)) {
-      const link = page.locator(`#tags a:has-text("${keyword}")`);
+      const link = page.locator(`#tags a:has-text("${keyword}")`).first();
       await expect(link).toBeVisible();
       await expect(link).toHaveAttribute('href', expectedUrl);
     }
@@ -138,9 +99,10 @@ test.describe('External Links & CTAs', () => {
 
   test('should have working project repository links for all projects', async ({ page }) => {
     const expectedRepoLinks = [
-      'https://github.com/AndroidNextdoor/aws-core-modules-tf',
-      'https://github.com/AndroidNextdoor/aws-kickstarter',
-      'https://github.com/AndroidNextdoor/katalon-aws-workshop'
+      'https://github.com/AndroidNextdoor/openclaw-jetson',
+      'https://github.com/AndroidNextdoor/jetson-ai-app',
+      'https://github.com/AndroidNextdoor/yahboom-orin-case',
+      'https://github.com/AndroidNextdoor/devreno'
     ];
 
     for (const repoUrl of expectedRepoLinks) {

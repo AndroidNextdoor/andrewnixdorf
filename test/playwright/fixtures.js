@@ -7,7 +7,7 @@
 async function waitForEasterEggScript(page) {
   await page.waitForFunction(() => {
     return typeof window.initializeEasterEggs !== 'undefined' ||
-           document.querySelector('.brand img')?.onclick !== null;
+           document.querySelector('.brand strong')?.onclick !== null;
   }, { timeout: 10000 });
 }
 
@@ -60,7 +60,7 @@ async function enterKonamiCode(page) {
  */
 const Selectors = {
   // Navigation
-  brandLogo: '.brand img',
+  brandLogo: '.brand strong',
   navMenu: 'header.nav nav',
   navProjects: 'nav a[href="#projects"]',
   navExperience: 'nav a[href="#experience"]',
@@ -100,8 +100,6 @@ const Selectors = {
   sliderDots: '.dot',
 
   // External Links
-  resumeBtn: '.resume-btn',
-  resumeDropdown: '#resume-dropdown',
   linkedinLink: '#contact-links a[href*="linkedin.com"]',
   githubLink: '#contact-links a[href*="github.com"]',
   externalLinks: 'a[target="_blank"]',

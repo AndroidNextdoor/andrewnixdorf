@@ -1,84 +1,91 @@
 {
   "name": "Andrew Nixdorf",
-  "role": "Lead SDET \u2022 QA Automation \u2022 AI + AWS",
-  "summary": "Problem-solver and master test crafter. Lead SDET at Zywave. AWS and Katalon Studio Enthusiast. My passion leads me to build resilient CI/CD pipelines, architect AI-powered testing strategies, and deliver quality products.",
+  "role": "SDET \u2022 Edge AI \u2022 DevSecOps",
+  "summary": "SDET at Zywave by day, edge-AI tinkerer by night. I build on NVIDIA Jetson and Ollama, ship with Playwright and Docker, and organize the /dev/reno developer community in Reno, NV.",
   "keywords": [
     "SDET",
+    "Edge AI",
+    "NVIDIA Jetson",
+    "Ollama",
     "/dev/reno",
-    "Katalon Studio",
     "Playwright",
-    "Cypress",
-    "AWS Bedrock",
-    "RAG",
-    "DevSecOps",
     "Docker",
-    "Terraform"
+    "AWS",
+    "Terraform",
+    "Python"
   ],
   "keywordLinks": {
     "SDET": "https://testguild.com/sdet/",
-    "Katalon Studio": "https://katalon.com/",
-    "Playwright": "https://playwright.dev/",
-    "Cypress": "https://www.cypress.io/",
-    "AWS Bedrock": "https://aws.amazon.com/bedrock/",
-    "RAG": "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
-    "DevSecOps": "https://aws.amazon.com/what-is/devsecops/",
+    "Edge AI": "https://www.nvidia.com/en-us/edge-computing/",
+    "NVIDIA Jetson": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/",
+    "Ollama": "https://ollama.com/",
     "/dev/reno": "https://devreno.us/",
+    "Playwright": "https://playwright.dev/",
     "Docker": "https://www.docker.com/",
-    "Terraform": "https://www.terraform.io/"
+    "AWS": "https://aws.amazon.com/",
+    "Terraform": "https://www.terraform.io/",
+    "Python": "https://www.python.org/"
   },
   "links": {
-    "resume": {
-      "pdf": "./assets/andrew-nixdorf-resume.pdf",
-      "docx": "./assets/andrew-nixdorf-resume.docx"
-    },
     "linkedin": "https://www.linkedin.com/in/andrewnixdorf/",
     "github": "https://github.com/AndroidNextdoor"
   },
   "projects": [
     {
-      "title": "AWS Core Modules (Terraform)",
-      "description": "Core Terraform modules for secure multi-account AWS infrastructure including VPC networking, IAM role-based access, AWS Config compliance monitoring, and MFA-enabled security controls.",
+      "title": "OpenClaw Jetson",
+      "description": "Secure OpenClaw + Ollama devcontainer for NVIDIA Jetson Orin Nano Super. Cloudflare Tunnel ingress, one-command bootstrap.",
       "stack": [
-        "Terraform",
-        "AWS",
-        "IAM",
-        "Multi-Account Strategy",
-        "Security & Compliance"
+        "Shell",
+        "Docker",
+        "Ollama",
+        "NVIDIA Jetson",
+        "Cloudflare Tunnel"
       ],
       "links": {
-        "repo": "https://github.com/AndroidNextdoor/aws-core-modules-tf",
+        "repo": "https://github.com/AndroidNextdoor/openclaw-jetson",
         "demo": ""
       }
     },
     {
-      "title": "AWS Kickstarter Pro",
-      "description": "Professional Terraform toolkit for provisioning secure AWS accounts with best practices, featuring role-based access (DevOps, PowerUser, Developer), VPC DMZ networking, and MFA-enabled infrastructure.",
+      "title": "Jetson AI App",
+      "description": "Jetson AI application with CSI camera integration for real-time computer vision on the edge.",
       "stack": [
-        "Terraform",
-        "AWS",
-        "IAM",
-        "VPC",
-        "MFA Security",
-        "Multi-Account Setup"
-      ],
-      "links": {
-        "repo": "https://github.com/AndroidNextdoor/aws-kickstarter",
-        "demo": ""
-      }
-    },
-    {
-      "title": "Katalon AWS Workshop",
-      "description": "Multi-project Gradle repository demonstrating Katalon Studio integration with AWS services, featuring SecretsManager integration, Docker networking, and custom AWS testing keywords.",
-      "stack": [
-        "Katalon Studio",
-        "Groovy",
-        "Gradle",
-        "AWS",
+        "NVIDIA Jetson",
+        "AI/ML",
+        "Computer Vision",
         "Docker"
       ],
       "links": {
-        "repo": "https://github.com/AndroidNextdoor/katalon-aws-workshop",
+        "repo": "https://github.com/AndroidNextdoor/jetson-ai-app",
         "demo": ""
+      }
+    },
+    {
+      "title": "Yahboom Orin Case",
+      "description": "Easy setup for Yahboom CubeNano aluminum case (OLED, RGB, fan) on Jetson Orin Nano. Plug-and-play I2C scripts.",
+      "stack": [
+        "Python",
+        "NVIDIA Jetson",
+        "I2C",
+        "Hardware"
+      ],
+      "links": {
+        "repo": "https://github.com/AndroidNextdoor/yahboom-orin-case",
+        "demo": ""
+      }
+    },
+    {
+      "title": "/dev/reno",
+      "description": "Static site for the /dev/reno developer community — monthly lightning talks and networking in Reno, NV.",
+      "stack": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Community"
+      ],
+      "links": {
+        "repo": "https://github.com/AndroidNextdoor/devreno",
+        "demo": "https://devreno.us/"
       }
     }
   ],
@@ -88,11 +95,11 @@
       "title": "Lead SDET",
       "period": "2023 \u2014 Present",
       "highlights": [
-        "Built test automation solutions using Java, JavaScript, Selenium, Katalon Studio and AWS",
+        "Built test automation solutions using Java, JavaScript, Selenium, and Playwright",
         "Designed load testing strategies for high-traffic insurance platforms",
-        "Implemented AI-driven defect discovery across multiple products",
+        "Prototyping edge-AI workflows on NVIDIA Jetson for on-device QA tooling",
         "Leading QA transformation initiatives and mentored junior SDETs",
-        "Architected Selenium Grid testing environments on AWS infrastructure"
+        "Architected CI/CD pipelines and Docker-based testing environments on AWS"
       ]
     },
     {
@@ -109,7 +116,7 @@
     {
       "company": "Previous Technology Roles",
       "title": "Senior Software Testing Engineer",
-      "period": "2019 — 2023",
+      "period": "2019 \u2014 2023",
       "highlights": [
         "Specialized in automation and performance testing frameworks",
         "Developed testing infrastructure and CI/CD pipeline integrations",
@@ -127,11 +134,11 @@
     {
       "name": "CompTIA A+",
       "issuer": "CompTIA",
-      "date": "May 2008 — May 2011"
+      "date": "May 2008 \u2014 May 2011"
     }
   ],
   "meta": {
-    "title": "Andrew Nixdorf \u2014 SDET \u2022 QA \u2022 AI",
-    "description": "Lead SDET (Zywave). Automation, Katalon, Selenium, AWS, Bedrock, RAG, DevOps, Playwright, Cypress"
+    "title": "Andrew Nixdorf \u2014 SDET \u2022 Edge AI \u2022 DevSecOps",
+    "description": "SDET at Zywave. Edge AI tinkerer (NVIDIA Jetson, Ollama). Playwright, Docker, AWS, Terraform. /dev/reno community organizer."
   }
 }

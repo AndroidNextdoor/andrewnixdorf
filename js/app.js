@@ -5,42 +5,28 @@ async function loadConfig(){
   // Hero
   document.querySelector('#name').textContent = cfg.name;
   document.querySelector('#role').textContent = cfg.role;
-  
+
   const summaryEl = document.querySelector('#summary');
   if (Array.isArray(cfg.summary)) {
     summaryEl.innerHTML = `<ul>${cfg.summary.map(s => `<li>${s}</li>`).join('')}</ul>`;
   } else {
     summaryEl.textContent = cfg.summary;
   }
-  // Handle resume links - create dropdown if multiple formats available
-  let resumeLink = '';
-  if (typeof cfg.links.resume === 'object' && cfg.links.resume.pdf && cfg.links.resume.docx) {
-    resumeLink = `<div class="resume-dropdown">
-      <button class="btn ghost resume-btn" onclick="toggleResumeDropdown()">Resume</button>
-      <div class="resume-dropdown-content" id="resume-dropdown">
-        <a href="${cfg.links.resume.pdf}" target="_blank" rel="noopener">PDF</a>
-        <a href="${cfg.links.resume.docx}" target="_blank" rel="noopener">DOCX</a>
-      </div>
-    </div>`;
-  } else {
-    resumeLink = `<a class="btn ghost" href="${cfg.links.resume.pdf || cfg.links.resume}" target="_blank" rel="noopener">Resume</a>`;
-  }
-  
+
   document.querySelector('#hero-links').innerHTML = `
     <a class="btn ghost" href="#" onclick="openImageSlider(); return false;">Images</a>
     <a class="btn ghost" href="${cfg.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn ghost" href="${cfg.links.github}" target="_blank" rel="noopener">GitHub</a>
-    ${resumeLink}
   `;
   const tags = document.querySelector('#tags'); tags.innerHTML = '';
-  cfg.keywords.forEach(k => { 
-    const link = document.createElement('a'); 
-    link.href = cfg.keywordLinks[k] || '#'; 
-    link.target = '_blank'; 
-    link.rel = 'noopener'; 
-    link.className = 'tag'; 
-    link.textContent = k; 
-    tags.appendChild(link); 
+  cfg.keywords.forEach(k => {
+    const link = document.createElement('a');
+    link.href = cfg.keywordLinks[k] || '#';
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.className = 'tag';
+    link.textContent = k;
+    tags.appendChild(link);
   });
   // Projects
   const list = document.querySelector('#projects'); list.innerHTML = '';
@@ -64,13 +50,13 @@ async function loadConfig(){
   const exp = document.querySelector('#experience'); exp.innerHTML = '';
   cfg.experience.forEach(e => {
     const el = document.createElement('article'); el.className = 'card';
-    const highlightsList = Array.isArray(e.highlights) 
+    const highlightsList = Array.isArray(e.highlights)
       ? `<ul>${e.highlights.map(h => `<li>${h}</li>`).join('')}</ul>`
       : `<p>${e.highlights}</p>`;
     el.innerHTML = `<h3>${e.company} — ${e.title}</h3><p class="period">${e.period}</p>${highlightsList}`;
     exp.appendChild(el);
   });
-  
+
   // Certifications
   if (cfg.certifications) {
     const certs = document.querySelector('#certifications'); certs.innerHTML = '';
@@ -84,12 +70,8 @@ async function loadConfig(){
   const contact = document.querySelector('#contact-links'); contact.innerHTML = '';
   Object.entries(cfg.links).forEach(([k,v]) => {
     if (!v) return;
-    if (k === 'resume' && typeof v === 'object') {
-      contact.innerHTML += `<a href="${v.pdf}" target="_blank" rel="noopener">Resume</a> · `;
-    } else {
-      const nice = k[0].toUpperCase()+k.slice(1);
-      contact.innerHTML += `<a href="${v}" target="_blank" rel="noopener">${nice}</a> · `;
-    }
+    const nice = k[0].toUpperCase()+k.slice(1);
+    contact.innerHTML += `<a href="${v}" target="_blank" rel="noopener">${nice}</a> · `;
   });
 
   // Meta

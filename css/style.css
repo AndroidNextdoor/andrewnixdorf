@@ -26,12 +26,7 @@ a:hover{text-decoration:underline}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 8px 0;gap:16px}
 
 .brand{display:flex;align-items:center;gap:20px;padding-left:12px}
-.brand img{
-    width:56px;height:56px;cursor:pointer;border-radius:8px;
-    transition:transform .2s ease;box-shadow:0 4px 14px rgba(0,0,0,.35)
-}
-.brand img:hover{transform:scale(1.05)}
-.brand strong{font-weight:700;font-size:20px;color:var(--ink)}
+.brand strong{font-weight:700;font-size:20px;color:var(--ink);cursor:pointer}
 
 .btn{
     display:inline-block;padding:10px 16px;border-radius:12px;
@@ -42,33 +37,6 @@ a:hover{text-decoration:underline}
 .btn.ghost{
     background:transparent;color:var(--ink);
     border-color:rgba(255,255,255,.12);box-shadow:none
-}
-
-/* Resume Dropdown Styles */
-.resume-dropdown{position:relative;display:inline-block}
-.resume-btn{
-    font-weight:700 !important;
-    font-family:inherit !important;
-    font-size:inherit !important;
-    padding:13px 16px !important;
-    display:inline-block !important;
-    text-align:center !important;
-    vertical-align:middle !important;
-}
-.resume-dropdown-content{
-    display:none;position:absolute;top:100%;left:0;
-    background:var(--card);border-radius:8px;
-    box-shadow:0 4px 12px rgba(0,0,0,.3);
-    border:1px solid rgba(255,255,255,.08);
-    min-width:120px;z-index:1000;margin-top:4px
-}
-.resume-dropdown-content a{
-    display:block;padding:10px 16px;color:var(--bg);
-    text-decoration:none;border-radius:6px;margin:4px;
-    transition:background 0.2s ease
-}
-.resume-dropdown-content a:hover{
-    background:rgba(237,143,58,.15);text-decoration:none
 }
 
 .grid{display:grid;gap:16px}
@@ -162,7 +130,7 @@ a:hover{text-decoration:underline}
     color:#dc2626
 }
 
-.resume{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
 .visually-hidden{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
 
 img{max-width:100%;height:auto;display:block}
@@ -248,6 +216,5 @@ img{max-width:100%;height:auto;display:block}
     .hero-image{flex:none;position:static}
     .profile-pic{width:200px;height:200px;border-width:3px}
     .brand{padding-left:8px}
-    .brand img{width:50px;height:50px}
     .brand strong{font-size:18px}
 }
