@@ -64,15 +64,19 @@ test.describe('External Links & CTAs', () => {
     const playwrightLink = page.locator('#tags a[href*="playwright.dev"]');
     await expect(playwrightLink).toBeVisible();
     await expect(playwrightLink).toHaveAttribute('target', '_blank');
+
+    const aiTestingLink = page.locator('#tags a[href*="deepchecks.com"]');
+    await expect(aiTestingLink).toBeVisible();
+    await expect(aiTestingLink).toHaveAttribute('target', '_blank');
   });
 
   test('should verify all keyword links have correct URLs', async ({ page }) => {
     const expectedKeywordLinks = {
-      'SDET': 'https://testguild.com/sdet/',
+      'AI Testing': 'https://www.deepchecks.com/',
       'Ollama': 'https://ollama.com/',
       'Playwright': 'https://playwright.dev/',
-      'Docker': 'https://www.docker.com/',
-      'AWS': 'https://aws.amazon.com/',
+      'SageMaker': 'https://aws.amazon.com/sagemaker/',
+      'Python': 'https://www.python.org/',
       '/dev/reno': 'https://devreno.us/'
     };
 

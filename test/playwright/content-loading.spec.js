@@ -34,23 +34,23 @@ test.describe('Core Content Loading & Rendering', () => {
   test('should render role from config', async () => {
     await expect(homePage.role).toBeVisible();
     const roleText = await homePage.role.textContent();
+    expect(roleText).toContain('AI Quality Engineering');
     expect(roleText).toContain('SDET');
     expect(roleText).toContain('Edge AI');
-    expect(roleText).toContain('DevSecOps');
   });
 
   test('should render summary from config', async () => {
     await expect(homePage.summary).toBeVisible();
     const summaryText = await homePage.summary.textContent();
-    expect(summaryText).toContain('SDET at Zywave');
-    expect(summaryText).toContain('edge-AI');
+    expect(summaryText).toContain('AI systems trustworthy');
+    expect(summaryText).toContain('Lead SDET');
   });
 
   test('should render keyword tags from config', async () => {
     await expect(homePage.tags).toBeVisible();
 
     // Check for specific keywords
-    const expectedKeywords = ['SDET', 'Edge AI', 'NVIDIA Jetson', 'Playwright', 'Docker'];
+    const expectedKeywords = ['AI Testing', 'LLM Evaluation', 'Edge AI', 'NVIDIA Jetson', 'Playwright'];
 
     for (const keyword of expectedKeywords) {
       const tag = homePage.tags.locator(`text="${keyword}"`);
@@ -106,7 +106,7 @@ test.describe('Core Content Loading & Rendering', () => {
     // Verify first link has correct attributes
     const firstLink = projectLinks.first();
     await expect(firstLink).toHaveAttribute('target', '_blank');
-    await expect(firstLink).toHaveAttribute('rel', /noopener/);
+    await expect(firstLink).toHaveAttribute('rel', /noopener noreferrer/);
   });
 
   test('should render experience section with all cards', async ({ page }) => {

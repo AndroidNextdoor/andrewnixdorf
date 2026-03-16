@@ -21,6 +21,17 @@ function initializeEasterEggs() {
     });
   }
   
+  // Bind slider controls (replacing inline onclick handlers)
+  const closeBtn = document.querySelector('.close');
+  if (closeBtn) closeBtn.addEventListener('click', () => closeImageSlider());
+  const prevBtn = document.querySelector('.slider-btn.prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => changeSlide(-1));
+  const nextBtn = document.querySelector('.slider-btn.next');
+  if (nextBtn) nextBtn.addEventListener('click', () => changeSlide(1));
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.addEventListener('click', () => currentSlide(i + 1));
+  });
+
   // Make profile picture clickable to open image slider or play resize game
   const profilePic = document.querySelector('.profile-pic');
   if (profilePic) {
@@ -58,6 +69,7 @@ document.addEventListener('keydown', (e) => {
 // Typing Easter Eggs
 let typedSequence = '';
 document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
   if (e.key.length === 1) {
     typedSequence += e.key.toLowerCase();
     if (typedSequence.includes('debug') || typedSequence.includes('selenium') || 

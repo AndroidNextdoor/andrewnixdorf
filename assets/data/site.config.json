@@ -1,30 +1,30 @@
 {
   "name": "Andrew Nixdorf",
-  "role": "SDET \u2022 Edge AI \u2022 DevSecOps",
-  "summary": "SDET at Zywave by day, edge-AI tinkerer by night. I build on NVIDIA Jetson and Ollama, ship with Playwright and Docker, and organize the /dev/reno developer community in Reno, NV.",
+  "role": "AI Quality Engineering \u2022 SDET \u2022 Edge AI",
+  "summary": "I make AI systems trustworthy. As a Lead SDET, I design quality frameworks for LLM-powered applications \u2014 from model evaluation and output validation to edge AI deployment testing on NVIDIA Jetson. I enable engineering teams to adopt AI tools effectively, champion best practices for agentic workflows, and organize the /dev/reno developer community in Reno, NV.",
   "keywords": [
-    "SDET",
+    "AI Testing",
+    "LLM Evaluation",
+    "Model Quality",
     "Edge AI",
     "NVIDIA Jetson",
     "Ollama",
-    "/dev/reno",
+    "SageMaker",
     "Playwright",
-    "Docker",
-    "AWS",
-    "Terraform",
-    "Python"
+    "Python",
+    "/dev/reno"
   ],
   "keywordLinks": {
-    "SDET": "https://testguild.com/sdet/",
+    "AI Testing": "https://www.deepchecks.com/",
+    "LLM Evaluation": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+    "Model Quality": "https://mlflow.org/docs/latest/model-evaluation/index.html",
     "Edge AI": "https://www.nvidia.com/en-us/edge-computing/",
     "NVIDIA Jetson": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/",
     "Ollama": "https://ollama.com/",
-    "/dev/reno": "https://devreno.us/",
+    "SageMaker": "https://aws.amazon.com/sagemaker/",
     "Playwright": "https://playwright.dev/",
-    "Docker": "https://www.docker.com/",
-    "AWS": "https://aws.amazon.com/",
-    "Terraform": "https://www.terraform.io/",
-    "Python": "https://www.python.org/"
+    "Python": "https://www.python.org/",
+    "/dev/reno": "https://devreno.us/"
   },
   "links": {
     "linkedin": "https://www.linkedin.com/in/andrewnixdorf/",
@@ -33,7 +33,7 @@
   "projects": [
     {
       "title": "OpenClaw Jetson",
-      "description": "Secure OpenClaw + Ollama devcontainer for NVIDIA Jetson Orin Nano Super. Cloudflare Tunnel ingress, one-command bootstrap.",
+      "description": "Production-grade LLM testing environment on NVIDIA Jetson. Containerized Ollama deployment with secure tunnel ingress for remote model evaluation and edge AI quality validation.",
       "stack": [
         "Shell",
         "Docker",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Jetson AI App",
-      "description": "Jetson AI application with CSI camera integration for real-time computer vision on the edge.",
+      "description": "Real-time computer vision testing pipeline on NVIDIA Jetson. CSI camera integration with automated validation for model accuracy, latency benchmarking, and edge inference quality.",
       "stack": [
         "NVIDIA Jetson",
         "AI/ML",
@@ -62,7 +62,7 @@
     },
     {
       "title": "Yahboom Orin Case",
-      "description": "Easy setup for Yahboom CubeNano aluminum case (OLED, RGB, fan) on Jetson Orin Nano. Plug-and-play I2C scripts.",
+      "description": "Hardware monitoring toolkit for Jetson AI workloads \u2014 real-time thermal, power, and performance telemetry via I2C sensors during model inference testing.",
       "stack": [
         "Python",
         "NVIDIA Jetson",
@@ -76,7 +76,7 @@
     },
     {
       "title": "/dev/reno",
-      "description": "Static site for the /dev/reno developer community — monthly lightning talks and networking in Reno, NV.",
+      "description": "Static site for the /dev/reno developer community \u2014 monthly lightning talks and networking in Reno, NV.",
       "stack": [
         "JavaScript",
         "HTML",
@@ -95,11 +95,11 @@
       "title": "Lead SDET",
       "period": "2023 \u2014 Present",
       "highlights": [
-        "Built test automation solutions using Java, JavaScript, Selenium, and Playwright",
-        "Designed load testing strategies for high-traffic insurance platforms",
-        "Prototyping edge-AI workflows on NVIDIA Jetson for on-device QA tooling",
-        "Leading QA transformation initiatives and mentored junior SDETs",
-        "Architected CI/CD pipelines and Docker-based testing environments on AWS"
+        "Designing AI quality frameworks for LLM-powered features \u2014 prompt evaluation, output validation, and model regression testing",
+        "Enabling engineering teams to adopt AI tools effectively \u2014 training on agentic workflows, Claude Code best practices, and AI-assisted development",
+        "Prototyping edge-AI testing workflows on NVIDIA Jetson for on-device model evaluation and inference quality validation",
+        "Architected CI/CD pipelines and Docker-based testing environments on AWS with Playwright and Terraform",
+        "Leading QA transformation initiatives and mentoring junior SDETs across multiple product teams"
       ]
     },
     {
@@ -107,10 +107,10 @@
       "title": "Lead Organizer",
       "period": "2023 \u2014 Present",
       "highlights": [
-        "Organize monthly tech lightning talks",
+        "Organize monthly tech lightning talks with focus on AI testing, edge AI, and developer tooling",
         "Coordinate developer community in Reno, NV and promote networking events",
-        "Manage speaker outreach and build relationships",
-        "Hosted workshops and shared key skills about software engineering and testing"
+        "Manage speaker outreach and build relationships with NVIDIA, AI/ML practitioners, and testing community",
+        "Hosted workshops on AI adoption, agentic workflows, and modern testing practices"
       ]
     },
     {
@@ -118,15 +118,15 @@
       "title": "Senior Software Testing Engineer",
       "period": "2019 \u2014 2023",
       "highlights": [
-        "Specialized in automation and performance testing frameworks",
-        "Developed testing infrastructure and CI/CD pipeline integrations",
-        "Built comprehensive QA automation frameworks across multiple platforms",
+        "Specialized in automation and performance testing frameworks across web, mobile, and API platforms",
+        "Developed testing infrastructure and CI/CD pipeline integrations for continuous quality delivery",
+        "Built comprehensive QA automation frameworks using Selenium, Playwright, and custom tooling",
         "Led testing initiatives for various technical products and services"
       ]
     }
   ],
   "meta": {
-    "title": "Andrew Nixdorf \u2014 SDET \u2022 Edge AI \u2022 DevSecOps",
-    "description": "SDET at Zywave. Edge AI tinkerer (NVIDIA Jetson, Ollama). Playwright, Docker, AWS, Terraform. /dev/reno community organizer."
+    "title": "Andrew Nixdorf \u2014 AI/LLM Testing Expert | SDET \u2022 Edge AI \u2022 Model Validation",
+    "description": "AI quality engineer specializing in LLM testing, model evaluation, and edge AI validation. Building AI test frameworks on NVIDIA Jetson and Ollama. /dev/reno community lead."
   }
 }
