@@ -91,9 +91,9 @@
   ],
   "experience": [
     {
-      "company": "Zywave",
+      "company": "Zywave (via ClarionDoor acquisition)",
       "title": "Lead SDET",
-      "period": "2023 \u2014 Present",
+      "period": "2020 \u2014 Present",
       "highlights": [
         "Designing AI quality frameworks for LLM-powered features \u2014 prompt evaluation, output validation, and model regression testing",
         "Enabling engineering teams to adopt AI tools effectively \u2014 training on agentic workflows, Claude Code best practices, and AI-assisted development",
@@ -105,7 +105,7 @@
     {
       "company": "/dev/reno",
       "title": "Lead Organizer",
-      "period": "2023 \u2014 Present",
+      "period": "2020 \u2014 Present",
       "highlights": [
         "Organize monthly tech lightning talks with focus on AI testing, edge AI, and developer tooling",
         "Coordinate developer community in Reno, NV and promote networking events",
@@ -116,7 +116,7 @@
     {
       "company": "Previous Technology Roles",
       "title": "Senior Software Testing Engineer",
-      "period": "2019 \u2014 2023",
+      "period": "2019 \u2014 2020",
       "highlights": [
         "Specialized in automation and performance testing frameworks across web, mobile, and API platforms",
         "Developed testing infrastructure and CI/CD pipeline integrations for continuous quality delivery",

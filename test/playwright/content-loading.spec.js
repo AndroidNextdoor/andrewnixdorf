@@ -125,7 +125,7 @@ test.describe('Core Content Loading & Rendering', () => {
     // Check for Zywave experience
     await expect(firstExperience).toContainText('Zywave');
     await expect(firstExperience).toContainText('Lead SDET');
-    await expect(firstExperience).toContainText('2023');
+    await expect(firstExperience).toContainText('2020');
     await expect(firstExperience).toContainText('Present');
   });
 
