@@ -64,7 +64,6 @@ const Selectors = {
   navMenu: 'header.nav nav',
   navProjects: 'nav a[href="#projects"]',
   navExperience: 'nav a[href="#experience"]',
-  navCertifications: 'nav a[href="#certifications"]',
   navContact: 'nav a[href="#contact"]',
 
   // Hero Section
@@ -83,9 +82,6 @@ const Selectors = {
   experienceSection: '#experience-section',
   experience: '#experience',
   experienceCards: '#experience .card',
-  certificationsSection: '#certifications-section',
-  certifications: '#certifications',
-  certificationCards: '#certifications .card',
   contactSection: '#contact',
   contactLinks: '#contact-links',
 

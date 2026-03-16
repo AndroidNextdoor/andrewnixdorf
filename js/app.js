@@ -57,15 +57,6 @@ async function loadConfig(){
     exp.appendChild(el);
   });
 
-  // Certifications
-  if (cfg.certifications) {
-    const certs = document.querySelector('#certifications'); certs.innerHTML = '';
-    cfg.certifications.forEach(c => {
-      const el = document.createElement('article'); el.className = 'card';
-      el.innerHTML = `<h3>${c.name}</h3><p class="period">${c.issuer} — ${c.date}</p>`;
-      certs.appendChild(el);
-    });
-  }
   // Contact
   const contact = document.querySelector('#contact-links'); contact.innerHTML = '';
   Object.entries(cfg.links).forEach(([k,v]) => {

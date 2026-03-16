@@ -16,7 +16,6 @@ test.describe('Navigation & Anchor Links', () => {
     // Check for all nav links
     await expect(nav.locator('a[href="#projects"]')).toBeVisible();
     await expect(nav.locator('a[href="#experience"]')).toBeVisible();
-    await expect(nav.locator('a[href="#certifications"]')).toBeVisible();
     await expect(nav.locator('a[href="#contact"]')).toBeVisible();
   });
 
@@ -45,18 +44,6 @@ test.describe('Navigation & Anchor Links', () => {
 
     const experienceSection = page.locator('#experience-section');
     await expect(experienceSection).toBeInViewport();
-  });
-
-  test('should scroll to certifications section when clicking Certifications nav link', async ({ page }) => {
-    const certificationsLink = homePage.navCertifications;
-    await certificationsLink.click();
-
-    await page.waitForTimeout(500);
-
-    expect(page.url()).toContain('#certifications');
-
-    const certificationsSection = page.locator('#certifications-section');
-    await expect(certificationsSection).toBeInViewport();
   });
 
   test('should scroll to contact section when clicking Contact nav link', async ({ page }) => {
@@ -88,7 +75,6 @@ test.describe('Navigation & Anchor Links', () => {
     const sections = [
       { link: 'a[href="#projects"]', hash: '#projects', section: '#projects-section' },
       { link: 'a[href="#experience"]', hash: '#experience', section: '#experience-section' },
-      { link: 'a[href="#certifications"]', hash: '#certifications', section: '#certifications-section' },
       { link: 'a[href="#contact"]', hash: '#contact', section: '#contact' }
     ];
 

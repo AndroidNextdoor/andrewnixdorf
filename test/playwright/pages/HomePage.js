@@ -13,7 +13,6 @@ class HomePage {
     this.navMenu = page.locator(Selectors.navMenu);
     this.navProjects = page.locator(Selectors.navProjects);
     this.navExperience = page.locator(Selectors.navExperience);
-    this.navCertifications = page.locator(Selectors.navCertifications);
     this.navContact = page.locator(Selectors.navContact);
 
     // Hero Section
@@ -31,9 +30,6 @@ class HomePage {
     this.experienceSection = page.locator(Selectors.experienceSection);
     this.experience = page.locator(Selectors.experience);
     this.experienceCards = page.locator(Selectors.experienceCards);
-    this.certificationsSection = page.locator(Selectors.certificationsSection);
-    this.certifications = page.locator(Selectors.certifications);
-    this.certificationCards = page.locator(Selectors.certificationCards);
     this.contactSection = page.locator(Selectors.contactSection);
     this.contactLinks = page.locator(Selectors.contactLinks);
 
@@ -84,13 +80,12 @@ class HomePage {
 
   /**
    * Click a navigation link
-   * @param {'projects' | 'experience' | 'certifications' | 'contact'} section
+   * @param {'projects' | 'experience' | 'contact'} section
    */
   async clickNavLink(section) {
     const linkMap = {
       projects: this.navProjects,
       experience: this.navExperience,
-      certifications: this.navCertifications,
       contact: this.navContact
     };
     await linkMap[section].click();
@@ -113,13 +108,6 @@ class HomePage {
     return this.experienceCards.nth(index);
   }
 
-  /**
-   * Get a specific certification card by index
-   * @param {number} index
-   */
-  getCertificationCard(index) {
-    return this.certificationCards.nth(index);
-  }
 }
 
 module.exports = { HomePage };

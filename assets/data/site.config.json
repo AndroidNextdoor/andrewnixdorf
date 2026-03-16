@@ -125,18 +125,6 @@
       ]
     }
   ],
-  "certifications": [
-    {
-      "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
-      "date": "April 2018"
-    },
-    {
-      "name": "CompTIA A+",
-      "issuer": "CompTIA",
-      "date": "May 2008 \u2014 May 2011"
-    }
-  ],
   "meta": {
     "title": "Andrew Nixdorf \u2014 SDET \u2022 Edge AI \u2022 DevSecOps",
     "description": "SDET at Zywave. Edge AI tinkerer (NVIDIA Jetson, Ollama). Playwright, Docker, AWS, Terraform. /dev/reno community organizer."

@@ -142,25 +142,6 @@ test.describe('Core Content Loading & Rendering', () => {
     expect(highlightText.length).toBeGreaterThan(20);
   });
 
-  test('should render certifications section', async ({ page }) => {
-    const certificationsSection = homePage.certificationsSection;
-    await expect(certificationsSection).toBeVisible();
-
-    const certificationCards = page.locator('#certifications .card');
-    const cardCount = await certificationCards.count();
-    expect(cardCount).toBeGreaterThanOrEqual(2);
-  });
-
-  test('should render certification details correctly', async ({ page }) => {
-    const firstCert = homePage.getCertificationCard(0);
-    await expect(firstCert).toBeVisible();
-
-    // Check for AWS certification
-    await expect(firstCert).toContainText('AWS Certified Cloud Practitioner');
-    await expect(firstCert).toContainText('Amazon Web Services');
-    await expect(firstCert).toContainText('April 2018');
-  });
-
   test('should render contact section with links', async ({ page }) => {
     const contactSection = homePage.contactSection;
     await expect(contactSection).toBeVisible();
