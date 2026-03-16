@@ -114,14 +114,24 @@
       ]
     },
     {
-      "company": "Previous Technology Roles",
-      "title": "Senior Software Testing Engineer",
-      "period": "2019 \u2014 2020",
+      "company": "Kitewire",
+      "title": "DOD Contractor \u2014 Software Engineer & Pen Tester",
+      "period": "2014 \u2014 2020",
       "highlights": [
-        "Specialized in automation and performance testing frameworks across web, mobile, and API platforms",
-        "Developed testing infrastructure and CI/CD pipeline integrations for continuous quality delivery",
-        "Built comprehensive QA automation frameworks using Selenium, Playwright, and custom tooling",
-        "Led testing initiatives for various technical products and services"
+        "Built and tested applications for the Defense Travel Management Office (DTMO) tracking government travel services and identifying fraudulent expense behavior",
+        "Developed certificate management application used across government agencies for training compliance and deadline tracking",
+        "Performed penetration testing on applications before DOD release \u2014 security validation for billing and procurement systems",
+        "Obtained security clearance during heightened post-Snowden vetting process"
+      ]
+    },
+    {
+      "company": "The Sienna (now Renaissance Reno)",
+      "title": "IT / Network Engineer",
+      "period": "2012 \u2014 2014",
+      "highlights": [
+        "Engineered casino networking infrastructure \u2014 hotspots, gateways, and enterprise network equipment across the property",
+        "Developed custom iPad application for centralized TV management across the property, orchestrating live NFL broadcasts on game days",
+        "Managed IT operations for a large downtown Reno casino property"
       ]
     }
   ],
